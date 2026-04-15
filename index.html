@@ -1,578 +1,1383 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7NWEN410BH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7NWEN410BH');
-</script>
-</script>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicare Hospital — Rahim Yar Khan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --teal:#0f766e;--teal-light:#14b8a6;--teal-pale:#f0fdfa;--teal-mid:#ccfbf1;
-  --navy:#0c2340;--navy-mid:#164472;--cream:#fafaf8;--warm:#f5f0e8;
-  --text:#1a1a2e;--muted:#64748b;--border:#e2e8f0;
-  --success:#059669;--warning:#d97706;--danger:#dc2626;
-  --white:#ffffff;--shadow:0 4px 24px rgba(15,118,110,0.08);
+/* ═══════════════════════════════════════════
+   THEME VARIABLES
+═══════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg: #060B14;
+  --bg2: #0D1525;
+  --bg3: #111D30;
+  --bg4: #162035;
+  --surface: rgba(255,255,255,0.04);
+  --surface2: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(13,148,136,0.2);
+  --text: #F0F4FF;
+  --text2: rgba(240,244,255,0.65);
+  --text3: rgba(240,244,255,0.38);
+  --teal: #0ED8CB;
+  --teal2: #0D9488;
+  --teal3: #0B6E65;
+  --teal-glow: rgba(14,216,203,0.15);
+  --gold: #F4BE45;
+  --gold2: rgba(244,190,69,0.12);
+  --red: #FF5A5A;
+  --green: #23D18B;
+  --card-bg: #0D1525;
+  --card-border: rgba(255,255,255,0.07);
+  --input-bg: rgba(255,255,255,0.05);
+  --input-border: rgba(255,255,255,0.12);
+  --nav-bg: rgba(6,11,20,0.88);
+  --shadow: 0 24px 80px rgba(0,0,0,0.5);
+  --shadow-sm: 0 4px 24px rgba(0,0,0,0.3);
+  --hero-grid: rgba(14,216,203,0.05);
 }
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;overflow-x:hidden}
-h1,h2,h3,h4{font-family:'Playfair Display',serif}
-
-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--teal);cursor:pointer}
-.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--teal),var(--teal-light));border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:18px}
-.nav-links{display:flex;align-items:center;gap:6px}
-.nav-btn{padding:8px 16px;border-radius:8px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;transition:all 0.2s}
-.nav-btn.ghost{background:transparent;color:var(--muted)}
-.nav-btn.ghost:hover{background:var(--teal-pale);color:var(--teal)}
-.nav-btn.primary{background:var(--teal);color:white}
-.nav-btn.primary:hover{background:#0d6b64;transform:translateY(-1px)}
-.nav-btn.active{color:var(--teal);background:var(--teal-pale)}
-
-.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 50%,#1a4a6e 100%);padding:80px 24px 100px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(20,184,166,0.15) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,0.03) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hero h1{font-size:52px;font-weight:700;color:white;line-height:1.15;margin-bottom:20px}
-.hero h1 span{color:var(--teal-light)}
-.hero p{color:rgba(255,255,255,0.7);font-size:18px;line-height:1.7;margin-bottom:36px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn-hero-primary{background:var(--teal-light);color:var(--navy);padding:14px 28px;border-radius:10px;border:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.25s}
-.btn-hero-primary:hover{background:#5eead4;transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,184,166,0.35)}
-.btn-hero-secondary{background:transparent;color:white;padding:14px 28px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.3);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.25s}
-.btn-hero-secondary:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5)}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.stat-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:20px;text-align:center;backdrop-filter:blur(4px)}
-.stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--teal-light);margin-bottom:4px}
-.stat-label{font-size:13px;color:rgba(255,255,255,0.55);font-weight:400}
-
-.search-section{max-width:1200px;margin:-36px auto 0;padding:0 24px;position:relative;z-index:10}
-.search-box{background:white;border-radius:16px;padding:20px 24px;box-shadow:0 8px 40px rgba(0,0,0,0.12);display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
-.search-field{flex:1;min-width:160px}
-.search-field label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
-.search-input{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;color:var(--text)}
-.search-input:focus{border-color:var(--teal)}
-.search-input::placeholder{color:#b0bec5}
-select.search-input{cursor:pointer;background:#fff}
-.btn-search{background:var(--teal);color:white;border:none;padding:11px 24px;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 0.2s;height:44px}
-.btn-search:hover{background:#0d6b64;transform:translateY(-1px)}
-
-.main-content{max-width:1200px;margin:48px auto;padding:0 24px}
-.section-title{font-size:32px;font-weight:700;color:var(--navy);margin-bottom:8px}
-.section-sub{color:var(--muted);font-size:15px;margin-bottom:36px}
-
-.filters-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;align-items:center}
-.filter-chip{padding:8px 16px;border-radius:20px;border:1.5px solid var(--border);background:white;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.2s;color:var(--muted)}
-.filter-chip:hover,.filter-chip.active{background:var(--teal-pale);border-color:var(--teal-light);color:var(--teal)}
-.filter-chip.active{font-weight:600}
-
-.doctor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
-.doctor-card{background:white;border-radius:16px;border:1px solid var(--border);padding:24px;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden}
-.doctor-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-light));transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
-.doctor-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(15,118,110,0.13);border-color:var(--teal-light)}
-.doctor-card:hover::before{transform:scaleX(1)}
-.doc-header{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start}
-.doc-avatar{width:60px;height:60px;border-radius:14px;flex-shrink:0;background:var(--teal-mid);display:flex;align-items:center;justify-content:center;font-size:24px}
-.doc-info h3{font-size:17px;font-weight:600;color:var(--navy);margin-bottom:3px}
-.doc-info p{font-size:13px;color:var(--teal);font-weight:500;margin-bottom:4px}
-.doc-info .hospital{font-size:12px;color:var(--muted)}
-.rating{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:#f59e0b}
-.rating span{color:var(--muted);font-weight:400}
-.doc-tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
-.tag{padding:4px 10px;background:var(--teal-pale);color:var(--teal);border-radius:6px;font-size:11px;font-weight:600}
-.doc-meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
-.fee{font-size:18px;font-weight:700;color:var(--navy)}
-.fee span{font-size:12px;font-weight:400;color:var(--muted)}
-.availability{font-size:12px;color:var(--success);font-weight:600;display:flex;align-items:center;gap:4px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--success);display:inline-block}
-.btn-book{width:100%;margin-top:14px;padding:11px;background:var(--teal);color:white;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s}
-.btn-book:hover{background:#0d6b64}
-
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn 0.2s}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal{background:white;border-radius:20px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;animation:slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1)}
-@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.modal-header{padding:24px 28px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:white;z-index:1;border-radius:20px 20px 0 0}
-.modal-header h2{font-size:22px;color:var(--navy)}
-.close-btn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all 0.2s}
-.close-btn:hover{background:var(--border);color:var(--text)}
-.modal-body{padding:24px 28px}
-.doc-mini{display:flex;gap:14px;align-items:center;background:var(--teal-pale);border-radius:12px;padding:16px;margin-bottom:24px}
-.doc-mini-info h4{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:2px}
-.doc-mini-info p{font-size:13px;color:var(--teal)}
-.form-group{margin-bottom:18px}
-.form-group label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px}
-.form-group label span{color:var(--danger)}
-.form-input{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;color:var(--text)}
-.form-input:focus{border-color:var(--teal)}
-.form-input.error{border-color:var(--danger)}
-.error-msg{font-size:12px;color:var(--danger);margin-top:4px}
-.slots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.slot{padding:9px 6px;border-radius:8px;border:1.5px solid var(--border);text-align:center;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s;color:var(--muted)}
-.slot:hover:not(.booked){border-color:var(--teal-light);color:var(--teal);background:var(--teal-pale)}
-.slot.selected{background:var(--teal);color:white;border-color:var(--teal)}
-.slot.booked{background:#f1f5f9;color:#cbd5e1;cursor:not-allowed;text-decoration:line-through}
-.date-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:16px;scrollbar-width:none}
-.date-tab{padding:10px 14px;border-radius:9px;border:1.5px solid var(--border);cursor:pointer;text-align:center;min-width:70px;flex-shrink:0;transition:all 0.2s}
-.date-tab.active{background:var(--teal);border-color:var(--teal);color:white}
-.date-tab:hover:not(.active){border-color:var(--teal-light);background:var(--teal-pale)}
-.date-day{font-size:11px;font-weight:600;color:inherit;opacity:0.7;margin-bottom:2px}
-.date-num{font-size:18px;font-weight:700;color:inherit}
-.btn-confirm{width:100%;padding:14px;background:linear-gradient(135deg,var(--teal),var(--teal-light));color:white;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;margin-top:6px;transition:all 0.2s}
-.btn-confirm:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(15,118,110,0.3)}
-.input-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-.confirmation{text-align:center;padding:16px 0}
-.confirm-icon{width:72px;height:72px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;animation:popIn 0.4s cubic-bezier(0.34,1.56,0.64,1)}
-@keyframes popIn{from{transform:scale(0)}to{transform:scale(1)}}
-.confirm-id{background:var(--teal-pale);border:1px dashed var(--teal-light);border-radius:10px;padding:12px 20px;margin:16px 0;font-size:18px;font-weight:700;color:var(--teal);font-family:'Playfair Display',serif;letter-spacing:2px}
-.confirm-details{background:#f8fafc;border-radius:12px;padding:16px;text-align:left;margin:16px 0}
-.confirm-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:14px}
-.confirm-row:last-child{border-bottom:none}
-.confirm-row .label{color:var(--muted)}
-.confirm-row .val{font-weight:600;color:var(--navy)}
-
-.dashboard{max-width:1200px;margin:0 auto;padding:40px 24px}
-.dash-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;flex-wrap:wrap;gap:16px}
-.dash-greeting h2{font-size:28px;color:var(--navy);margin-bottom:4px}
-.dash-greeting p{color:var(--muted);font-size:15px}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:36px}
-.stat-widget{background:white;border-radius:14px;border:1px solid var(--border);padding:20px}
-.stat-widget .num{font-size:32px;font-weight:700;font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:4px}
-.stat-widget .label{font-size:13px;color:var(--muted)}
-.stat-widget .icon{font-size:28px;margin-bottom:10px}
-.appointments-section h3{font-size:22px;color:var(--navy);margin-bottom:20px}
-.appt-card{background:white;border-radius:14px;border:1px solid var(--border);padding:20px 24px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;transition:box-shadow 0.2s}
-.appt-card:hover{box-shadow:var(--shadow)}
-.appt-left{display:flex;gap:16px;align-items:center}
-.appt-avatar{width:50px;height:50px;border-radius:12px;background:var(--teal-pale);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.appt-name{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:3px}
-.appt-detail{font-size:13px;color:var(--muted)}
-.appt-right{text-align:right}
-.appt-time{font-size:15px;font-weight:600;color:var(--navy)}
-.appt-date{font-size:12px;color:var(--muted);margin-bottom:8px}
-.badge{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600}
-.badge.upcoming{background:#dbeafe;color:#1d4ed8}
-.badge.completed{background:#dcfce7;color:#166534}
-.badge.cancelled{background:#fee2e2;color:#991b1b}
-
-.page-tabs{display:flex;gap:4px;background:#f1f5f9;border-radius:10px;padding:4px;margin-bottom:32px;width:fit-content}
-.page-tab{padding:9px 20px;border-radius:7px;border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;color:var(--muted);transition:all 0.2s}
-.page-tab.active{background:white;color:var(--teal);font-weight:600;box-shadow:0 1px 6px rgba(0,0,0,0.07)}
-
-.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;margin:40px 0}
-.service-card{background:white;border-radius:16px;border:1px solid var(--border);padding:28px 22px;text-align:center;transition:all 0.25s;cursor:pointer}
-.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(15,118,110,0.1);border-color:var(--teal-light)}
-.service-icon{font-size:40px;margin-bottom:14px}
-.service-card h3{font-size:17px;color:var(--navy);margin-bottom:8px}
-.service-card p{font-size:13px;color:var(--muted);line-height:1.6}
-
-.testimonials{background:var(--navy);padding:72px 24px;margin:60px 0}
-.testi-inner{max-width:1200px;margin:0 auto}
-.testi-inner .section-title{color:white}
-.testi-inner .section-sub{color:rgba(255,255,255,0.5)}
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:40px}
-.testi-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px}
-.testi-stars{color:#f59e0b;font-size:14px;margin-bottom:14px}
-.testi-text{color:rgba(255,255,255,0.8);font-size:14px;line-height:1.75;margin-bottom:18px;font-style:italic}
-.testi-author{display:flex;align-items:center;gap:12px}
-.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--teal-mid);display:flex;align-items:center;justify-content:center;font-size:16px}
-.testi-name{font-weight:600;color:white;font-size:14px}
-.testi-role{font-size:12px;color:rgba(255,255,255,0.4)}
-
-footer{background:var(--text);padding:48px 24px 28px;color:rgba(255,255,255,0.6);font-size:13px}
-.footer-inner{max-width:1200px;margin:0 auto}
-.footer-logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--teal-light);margin-bottom:8px}
-.footer-copy{margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);text-align:center;font-size:12px}
-
-.empty-state{text-align:center;padding:60px 24px;color:var(--muted)}
-.empty-state .big-icon{font-size:56px;margin-bottom:16px;opacity:0.4}
-.empty-state p{font-size:15px}
-
-@media(max-width:700px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero h1{font-size:34px}
-  .hero-stats{display:none}
-  .stats-row{grid-template-columns:1fr 1fr}
-  .input-row{grid-template-columns:1fr}
-  .slots-grid{grid-template-columns:repeat(3,1fr)}
-  .search-box{flex-direction:column}
+[data-theme="light"] {
+  --bg: #F4F7FF;
+  --bg2: #EBF0FF;
+  --bg3: #FFFFFF;
+  --bg4: #F0F5FF;
+  --surface: rgba(0,0,0,0.03);
+  --surface2: rgba(0,0,0,0.06);
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(13,148,136,0.25);
+  --text: #0A1428;
+  --text2: rgba(10,20,40,0.6);
+  --text3: rgba(10,20,40,0.38);
+  --teal: #0B7A75;
+  --teal2: #0D9488;
+  --teal3: #E0F7F5;
+  --teal-glow: rgba(11,122,117,0.1);
+  --gold: #C8900A;
+  --gold2: rgba(200,144,10,0.1);
+  --red: #DC2626;
+  --green: #059669;
+  --card-bg: #FFFFFF;
+  --card-border: rgba(0,0,0,0.07);
+  --input-bg: #F8FAFF;
+  --input-border: rgba(0,0,0,0.12);
+  --nav-bg: rgba(244,247,255,0.92);
+  --shadow: 0 24px 80px rgba(0,0,50,0.1);
+  --shadow-sm: 0 4px 24px rgba(0,0,50,0.06);
+  --hero-grid: rgba(11,122,117,0.06);
 }
+
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background 0.35s,color 0.35s;cursor:none;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'Plus Jakarta Sans',sans-serif;cursor:none;}
+
+/* CUSTOM CURSOR */
+#cur{position:fixed;width:10px;height:10px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:transform 0.1s,background 0.2s;}
+#cur-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(14,216,203,0.5);border-radius:50%;pointer-events:none;z-index:9998;transition:border-color 0.2s;}
+.cursor-hover #cur{transform:scale(2.5);}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--teal3);border-radius:2px;}
+
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  height:68px;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--nav-bg);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+.nav-brand{display:flex;align-items:center;gap:12px;}
+.nav-logo{width:38px;height:38px;flex-shrink:0;}
+.brand-text .b-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--text);letter-spacing:-0.3px;line-height:1.1;}
+.brand-text .b-sub{font-size:9.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-top:1px;}
+.nav-center{display:flex;align-items:center;gap:30px;list-style:none;}
+.nav-center a{font-size:13px;font-weight:500;color:var(--text2);transition:color 0.2s;letter-spacing:0.2px;}
+.nav-center a:hover{color:var(--teal);}
+.nav-right{display:flex;align-items:center;gap:12px;}
+/* Theme toggle */
+.theme-toggle{
+  width:52px;height:28px;background:var(--surface2);border:1px solid var(--border);
+  border-radius:14px;position:relative;cursor:none;transition:all 0.3s;padding:0;
+}
+.theme-toggle .tog-knob{
+  position:absolute;top:3px;left:3px;width:20px;height:20px;
+  background:var(--teal);border-radius:50%;transition:transform 0.3s;
+  display:flex;align-items:center;justify-content:center;
+}
+[data-theme="light"] .theme-toggle .tog-knob{transform:translateX(24px);}
+.tog-icon{width:12px;height:12px;stroke:white;fill:none;stroke-width:2;}
+.nav-btn{
+  padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;
+  border:none;cursor:none;transition:all 0.25s;letter-spacing:0.3px;
+}
+.nav-btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border);}
+.nav-btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+.nav-btn-fill{background:var(--teal2);color:white;}
+.nav-btn-fill:hover{background:var(--teal);transform:translateY(-1px);}
+.hamburger{display:none;background:none;border:none;cursor:none;padding:4px;flex-direction:column;gap:5px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text);transition:all 0.3s;border-radius:1px;}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:100px 5% 80px;position:relative;overflow:hidden;
+  background:var(--bg);
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:linear-gradient(var(--hero-grid) 1px,transparent 1px),linear-gradient(90deg,var(--hero-grid) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse 75% 80% at 55% 45%,black 20%,transparent 75%);
+  animation:gridMove 25s linear infinite;
+}
+@keyframes gridMove{0%{background-position:0 0;}100%{background-position:52px 52px;}}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px);}
+.ho1{width:520px;height:520px;background:var(--teal-glow);top:-80px;right:-60px;animation:orbF 14s ease-in-out infinite;}
+.ho2{width:280px;height:280px;background:var(--gold2);bottom:60px;left:8%;animation:orbF 18s ease-in-out infinite 5s;}
+@keyframes orbF{0%,100%{transform:scale(1) translate(0,0);}50%{transform:scale(1.1) translate(15px,-20px);}}
+
+.hero-content{position:relative;z-index:2;max-width:640px;}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--surface2);border:1px solid var(--border2);
+  padding:7px 16px;border-radius:40px;margin-bottom:28px;
+  font-size:11.5px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--teal);
+  animation:slideUp 0.8s ease both;
+}
+.live-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;flex-shrink:0;animation:livePulse 2s infinite;}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(14,216,203,0.5);}50%{box-shadow:0 0 0 7px rgba(14,216,203,0);}}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(50px,7.5vw,96px);line-height:1.0;
+  font-weight:700;letter-spacing:-2px;margin-bottom:26px;
+  animation:slideUp 0.9s 0.1s ease both;color:var(--text);
+}
+.hero h1 .hl{color:var(--teal);font-style:italic;}
+.hero h1 .ghost{-webkit-text-stroke:1px var(--text3);color:transparent;}
+.hero-p{
+  font-size:17px;line-height:1.85;color:var(--text2);
+  max-width:500px;margin-bottom:40px;font-weight:300;
+  animation:slideUp 0.9s 0.18s ease both;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:slideUp 0.9s 0.26s ease both;}
+.hbtn-p{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--teal2);color:white;padding:15px 30px;
+  border-radius:10px;font-size:15px;font-weight:600;border:none;cursor:none;
+  transition:all 0.3s;letter-spacing:0.2px;
+}
+.hbtn-p:hover{background:var(--teal);transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,148,136,0.35);}
+.hbtn-g{
+  display:inline-flex;align-items:center;gap:9px;
+  background:transparent;color:var(--text);padding:15px 30px;
+  border-radius:10px;font-size:15px;font-weight:500;
+  border:1px solid var(--border);cursor:none;transition:all 0.3s;
+}
+.hbtn-g:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-3px);}
+.hbtn-p svg,.hbtn-g svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+.hero-stats{
+  display:flex;gap:0;margin-top:52px;
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  animation:slideUp 0.9s 0.34s ease both;
+  width:fit-content;
+}
+.hstat{padding:20px 28px;position:relative;}
+.hstat+.hstat::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--border);}
+.hstat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--teal);line-height:1;}
+.hstat-label{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-top:4px;text-transform:uppercase;}
+
+.hero-right{
+  position:absolute;right:5%;top:50%;transform:translateY(-50%);
+  z-index:2;width:min(42%,440px);
+  display:flex;flex-direction:column;gap:14px;
+  animation:slideLeft 1s 0.3s ease both;
+}
+.hero-card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:18px;padding:22px;backdrop-filter:blur(20px);
+  transition:all 0.3s;box-shadow:var(--shadow-sm);
+}
+.hero-card:hover{transform:translateX(-4px);border-color:var(--border2);}
+.hc-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.hc-icon{width:42px;height:42px;border-radius:11px;background:var(--teal-glow);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hc-icon svg{width:20px;height:20px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.hc-title{font-weight:700;font-size:14px;color:var(--text);}
+.hc-sub{font-size:12px;color:var(--text3);margin-top:1px;}
+.avail-row{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--green);}
+.avail-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:livePulse 2s infinite;}
+.hc-meta{display:flex;justify-content:space-between;align-items:center;}
+.hc-fee{font-size:13px;font-weight:700;color:var(--gold);}
+.hc-stars{display:flex;gap:2px;}
+.hc-stars svg{width:11px;height:11px;fill:var(--gold);}
+
+.scroll-cue{
+  position:absolute;bottom:32px;left:5%;z-index:2;
+  display:flex;align-items:center;gap:10px;
+  font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);
+  animation:slideUp 1s 0.5s ease both;
+}
+.sc-line{width:36px;height:1px;background:var(--border);overflow:hidden;position:relative;}
+.sc-line::after{content:'';position:absolute;inset:0;background:var(--teal);animation:scAnim 2.2s ease-in-out infinite;}
+@keyframes scAnim{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+
+@keyframes slideUp{from{opacity:0;transform:translateY(36px);}to{opacity:1;transform:translateY(0);}}
+@keyframes slideLeft{from{opacity:0;transform:translate(36px,-50%);}to{opacity:1;transform:translate(0,-50%);}}
+
+/* ═══════════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════════ */
+.marquee{
+  background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:13px 0;overflow:hidden;
+}
+.m-track{display:flex;animation:marquee 28s linear infinite;white-space:nowrap;}
+.m-item{display:inline-flex;align-items:center;gap:14px;padding:0 36px;font-size:11.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text3);}
+.m-dot{width:4px;height:4px;background:var(--teal);border-radius:50%;flex-shrink:0;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ═══════════════════════════════════════════
+   COMMON SECTION STYLES
+═══════════════════════════════════════════ */
+section{padding:100px 5%;}
+.s-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;}
+.s-label::before{content:'';width:20px;height:1.5px;background:var(--teal);}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,60px);font-weight:700;line-height:1.1;letter-spacing:-1.5px;color:var(--text);margin-bottom:16px;}
+.s-title em{font-style:italic;color:var(--teal);}
+.s-sub{font-size:15.5px;line-height:1.8;color:var(--text2);font-weight:300;max-width:480px;}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+.rv.d1{transition-delay:0.08s;}.rv.d2{transition-delay:0.16s;}.rv.d3{transition-delay:0.24s;}.rv.d4{transition-delay:0.32s;}
+
+/* ═══════════════════════════════════════════
+   DEPARTMENTS
+═══════════════════════════════════════════ */
+.depts{background:var(--bg);}
+.dept-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px;}
+.dept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden;}
+.dept-tile{
+  background:var(--bg2);padding:36px 28px;cursor:none;
+  transition:all 0.35s;position:relative;overflow:hidden;
+}
+.dept-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-glow),transparent);opacity:0;transition:opacity 0.35s;}
+.dept-tile:hover{background:var(--bg3);}
+.dept-tile:hover::after{opacity:1;}
+.dept-tile:hover .dt-arrow{transform:translate(4px,-4px);}
+.dt-icon{width:50px;height:50px;border-radius:13px;background:var(--teal-glow);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:all 0.3s;}
+.dept-tile:hover .dt-icon{border-color:var(--teal);}
+.dt-icon svg{width:22px;height:22px;stroke:var(--teal);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.dt-name{font-size:17px;font-weight:700;color:var(--text);margin-bottom:7px;}
+.dt-desc{font-size:13px;color:var(--text3);line-height:1.6;margin-bottom:18px;}
+.dt-arrow{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);transition:transform 0.3s;}
+.dt-arrow svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:2.5;}
+
+/* ═══════════════════════════════════════════
+   DOCTORS - 12 DOCTORS
+═══════════════════════════════════════════ */
+.doctors{background:var(--bg2);}
+.docs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:54px;}
+.doc-card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:20px;overflow:hidden;transition:all 0.35s;
+}
+.doc-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:var(--border2);}
+.doc-img{height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.doc-img-bg{position:absolute;inset:0;}
+.doc-avatar-wrap{position:relative;z-index:1;width:88px;height:88px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);}
+.doc-avatar-wrap svg{width:50px;height:50px;}
+.doc-rank{position:absolute;top:12px;right:12px;z-index:2;background:var(--bg);color:var(--text);font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;border:1px solid var(--border);}
+.doc-body{padding:18px 18px 16px;}
+.doc-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.2;}
+.doc-spec{font-size:12px;color:var(--teal);font-weight:600;margin-bottom:10px;letter-spacing:0.2px;}
+.doc-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.doc-exp{font-size:11.5px;color:var(--text3);}
+.doc-fee{font-size:13px;font-weight:700;color:var(--gold);}
+.doc-stars{display:flex;gap:1px;margin-bottom:12px;}
+.doc-stars svg{width:11px;height:11px;fill:var(--gold);}
+.doc-book-btn{width:100%;padding:10px;background:transparent;color:var(--teal);border:1.5px solid var(--border2);border-radius:8px;font-size:12.5px;font-weight:700;cursor:none;transition:all 0.25s;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:7px;letter-spacing:0.3px;}
+.doc-book-btn svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:2.5;transition:transform 0.2s;}
+.doc-book-btn:hover{background:var(--teal2);color:white;border-color:var(--teal2);}
+.doc-book-btn:hover svg{stroke:white;transform:translateX(3px);}
+
+/* ═══════════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════════ */
+.services{background:var(--bg3);}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:20px;overflow:hidden;margin-top:54px;border:1px solid var(--border);}
+.svc-tile{padding:36px 28px;background:var(--bg2);transition:all 0.3s;position:relative;overflow:hidden;}
+.svc-tile::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.svc-tile:hover::before{transform:scaleX(1);}
+.svc-tile:hover{background:var(--bg3);}
+.svc-icon-box{width:46px;height:46px;border-radius:12px;background:var(--teal-glow);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.svc-icon-box svg{width:21px;height:21px;stroke:var(--teal);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.svc-name{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.svc-desc{font-size:13px;color:var(--text3);line-height:1.65;}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════ */
+.testimonials{background:var(--bg);}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px;}
+.test-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:30px;transition:all 0.35s;}
+.test-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--border2);}
+.test-qm{font-family:'Cormorant Garamond',serif;font-size:72px;line-height:0.6;color:var(--teal-glow);margin-bottom:18px;display:block;}
+[data-theme="light"] .test-qm{color:rgba(13,148,136,0.15);}
+.test-body{font-size:14.5px;color:var(--text2);line-height:1.8;margin-bottom:22px;font-style:italic;font-weight:300;}
+.test-sep{width:36px;height:2px;background:var(--teal);margin-bottom:18px;border-radius:1px;}
+.test-author{display:flex;align-items:center;gap:12px;}
+.test-init{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:white;flex-shrink:0;}
+.test-name-w{font-size:14px;font-weight:700;color:var(--text);}
+.test-loc{font-size:11.5px;color:var(--text3);margin-top:1px;}
+.test-rating{display:flex;gap:2px;margin-top:4px;}
+.test-rating svg{width:10px;height:10px;fill:var(--gold);}
+
+/* ═══════════════════════════════════════════
+   EMERGENCY BANNER
+═══════════════════════════════════════════ */
+.emrg{
+  background:linear-gradient(135deg,#7F1D1D 0%,#991B1B 50%,#B91C1C 100%);
+  padding:60px 5%;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.emrg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");}
+.emrg-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);padding:5px 13px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:14px;}
+.emrg-tag span{width:6px;height:6px;background:#FCA5A5;border-radius:50%;animation:livePulse 1.5s infinite;}
+.emrg h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,50px);font-weight:700;color:white;line-height:1.15;letter-spacing:-1px;position:relative;z-index:1;}
+.emrg-r{position:relative;z-index:1;text-align:right;}
+.emrg-ph{display:inline-flex;align-items:center;gap:11px;background:white;color:#991B1B;padding:15px 26px;border-radius:12px;font-size:21px;font-weight:700;text-decoration:none;transition:all 0.25s;box-shadow:0 8px 30px rgba(0,0,0,0.25);}
+.emrg-ph:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,0.35);}
+.emrg-ph svg{width:20px;height:20px;stroke:#991B1B;fill:none;stroke-width:2;flex-shrink:0;}
+.emrg-note{font-size:11px;color:rgba(255,255,255,0.45);margin-top:8px;letter-spacing:1px;text-transform:uppercase;}
+
+/* ═══════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════ */
+.contact{background:var(--bg2);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;margin-top:54px;}
+.c-item{display:flex;align-items:flex-start;gap:16px;padding:22px 0;border-bottom:1px solid var(--border);}
+.c-item:last-child{border:none;}
+.ci-box{width:46px;height:46px;min-width:46px;border-radius:12px;background:var(--teal-glow);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;}
+.ci-box svg{width:19px;height:19px;stroke:var(--teal);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.ci-lbl{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:5px;}
+.ci-val{font-size:14.5px;color:var(--text);line-height:1.65;}
+.map-box{border-radius:20px;background:var(--card-bg);border:1px solid var(--card-border);min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;overflow:hidden;}
+.map-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,var(--teal-glow),transparent 70%);}
+.map-ping{width:68px;height:68px;border-radius:50%;background:var(--teal-glow);border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;animation:mapPing 2.2s ease-in-out infinite;position:relative;z-index:1;}
+.map-ping svg{width:28px;height:28px;stroke:var(--teal);fill:none;stroke-width:1.5;}
+@keyframes mapPing{0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,0.3);}50%{box-shadow:0 0 0 18px rgba(13,148,136,0);}}
+.map-box h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--text);position:relative;z-index:1;}
+.map-box p{font-size:13px;color:var(--text3);position:relative;z-index:1;}
+.map-go{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;background:var(--teal2);color:white;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.25s;}
+.map-go:hover{background:var(--teal);transform:translateY(-2px);}
+.map-go svg{width:13px;height:13px;stroke:white;fill:none;stroke-width:2;}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 5% 28px;}
+.ft-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:48px;margin-bottom:52px;}
+.ft-brand-desc{font-size:13.5px;color:var(--text3);line-height:1.8;margin:16px 0 22px;max-width:270px;}
+.ft-socials{display:flex;gap:9px;}
+.ft-soc{width:36px;height:36px;border-radius:9px;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.25s;text-decoration:none;}
+.ft-soc:hover{background:var(--teal2);border-color:var(--teal2);}
+.ft-soc svg{width:15px;height:15px;stroke:var(--text3);fill:none;stroke-width:1.5;}
+.ft-soc:hover svg{stroke:white;}
+.ft-col h5{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:20px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.ft-col ul a{font-size:13.5px;color:var(--text3);text-decoration:none;transition:color 0.2s;}
+.ft-col ul a:hover{color:var(--teal);}
+.ft-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.ft-bottom p{font-size:12.5px;color:var(--text3);}
+
+/* ═══════════════════════════════════════════
+   MOBILE NAV
+═══════════════════════════════════════════ */
+.mob-nav{display:none;position:fixed;inset:0;z-index:799;background:var(--nav-bg);backdrop-filter:blur(30px);flex-direction:column;align-items:center;justify-content:center;gap:22px;padding-top:68px;}
+.mob-nav.open{display:flex;}
+.mob-nav a{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--text);transition:color 0.2s;}
+.mob-nav a:hover{color:var(--teal);}
+.mob-nav .mob-btns{display:flex;flex-direction:column;gap:10px;width:200px;margin-top:10px;}
+
+/* ═══════════════════════════════════════════
+   AUTH MODALS
+═══════════════════════════════════════════ */
+.overlay{
+  display:none;position:fixed;inset:0;z-index:900;
+  background:rgba(0,0,0,0.65);backdrop-filter:blur(10px);
+  align-items:center;justify-content:center;padding:20px;
+}
+.overlay.open{display:flex;}
+.modal{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:24px;padding:40px;
+  width:100%;max-width:460px;max-height:92vh;overflow-y:auto;
+  animation:modalIn 0.3s ease;box-shadow:var(--shadow);
+}
+.modal.wide{max-width:560px;}
+@keyframes modalIn{from{opacity:0;transform:scale(0.92);}to{opacity:1;transform:scale(1);}}
+.modal-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--text);}
+.modal-sub{font-size:13.5px;color:var(--text3);margin-bottom:26px;}
+.close-btn{background:none;border:none;cursor:none;color:var(--text3);transition:color 0.2s;padding:2px;}
+.close-btn:hover{color:var(--text);}
+.close-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;}
+
+/* FORM ELEMENTS */
+.f-group{margin-bottom:16px;}
+.f-label{display:block;font-size:11.5px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--text3);margin-bottom:7px;}
+.f-label .req{color:var(--red);margin-left:2px;}
+.f-input{
+  width:100%;padding:12px 15px;
+  border:1.5px solid var(--input-border);border-radius:10px;
+  font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);
+  background:var(--input-bg);outline:none;transition:all 0.25s;
+  -webkit-appearance:none;
+}
+.f-input:focus{border-color:var(--teal);background:var(--bg3);box-shadow:0 0 0 3px var(--teal-glow);}
+.f-input.err{border-color:var(--red);}
+.f-input.ok{border-color:var(--green);}
+.f-err{font-size:11.5px;color:var(--red);margin-top:5px;display:none;}
+.f-err.show{display:block;}
+.f-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.f-submit{
+  width:100%;padding:14px;border:none;border-radius:11px;
+  background:var(--teal2);color:white;font-size:15px;font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;cursor:none;transition:all 0.3s;
+  letter-spacing:0.3px;display:flex;align-items:center;justify-content:center;gap:9px;
+  margin-top:4px;
+}
+.f-submit svg{width:17px;height:17px;stroke:white;fill:none;stroke-width:2;transition:transform 0.2s;}
+.f-submit:hover{background:var(--teal);transform:translateY(-2px);box-shadow:0 10px 28px rgba(13,148,136,0.3);}
+.f-submit:hover svg{transform:translateX(3px);}
+.auth-switch{text-align:center;margin-top:18px;font-size:13.5px;color:var(--text3);}
+.auth-switch a{color:var(--teal);font-weight:600;cursor:none;}
+.divider{display:flex;align-items:center;gap:12px;margin:18px 0;color:var(--text3);font-size:12px;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* APPOINTMENT FORM SECTION */
+.appt-sect{background:var(--bg);}
+.appt-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:72px;align-items:start;margin-top:62px;}
+.appt-feats{margin-top:36px;display:flex;flex-direction:column;}
+.af{display:flex;align-items:flex-start;gap:16px;padding:22px 0;border-bottom:1px solid var(--border);}
+.af:last-child{border:none;}
+.af-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--teal-glow);line-height:1;min-width:42px;transition:color 0.3s;}
+[data-theme="light"] .af-num{color:rgba(11,122,117,0.18);}
+.af:hover .af-num{color:var(--teal) !important;opacity:0.5;}
+.af-text h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.af-text p{font-size:13px;color:var(--text3);line-height:1.7;}
+
+/* CONFIRMATION CARD */
+.confirm-card{
+  background:linear-gradient(135deg,var(--bg3),var(--bg2));
+  border:1px solid var(--border2);border-radius:20px;padding:32px;
+  animation:modalIn 0.5s ease both;
+}
+.confirm-top{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
+.confirm-check{
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal2),var(--teal));
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.confirm-check svg{width:26px;height:26px;stroke:white;fill:none;stroke-width:2.5;}
+.confirm-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--text);}
+.confirm-sub{font-size:13px;color:var(--text3);margin-top:2px;}
+.booking-code{
+  background:var(--bg);border:1px solid var(--border2);
+  border-radius:12px;padding:16px 20px;margin-bottom:20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.bc-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;}
+.bc-code{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--teal);letter-spacing:3px;}
+.bc-copy{background:var(--teal-glow);border:1px solid var(--border2);border-radius:7px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--teal);cursor:none;transition:all 0.2s;}
+.bc-copy:hover{background:var(--teal2);color:white;}
+.confirm-details{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.cd-row{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;padding:8px 0;border-bottom:1px solid var(--border);}
+.cd-row:last-child{border:none;}
+.cd-key{color:var(--text3);font-weight:500;}
+.cd-val{color:var(--text);font-weight:600;}
+.confirm-note{
+  background:var(--teal-glow);border:1px solid var(--border2);
+  border-radius:10px;padding:14px 16px;
+  font-size:13px;color:var(--text2);line-height:1.65;
+}
+.confirm-note strong{color:var(--teal);}
+
+/* USER PROFILE BAR */
+.user-bar{
+  display:flex;align-items:center;gap:9px;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:10px;padding:7px 14px;cursor:none;
+  transition:all 0.2s;position:relative;
+}
+.user-bar:hover{border-color:var(--border2);}
+.user-bar-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--teal2),var(--teal3));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;font-family:'Cormorant Garamond',serif;}
+.user-bar-name{font-size:13px;font-weight:600;color:var(--text);max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.user-bar svg{width:14px;height:14px;stroke:var(--text3);fill:none;stroke-width:2;}
+.user-dropdown{
+  position:absolute;top:calc(100% + 8px);right:0;min-width:160px;
+  background:var(--bg3);border:1px solid var(--border);border-radius:12px;
+  padding:8px;box-shadow:var(--shadow-sm);z-index:10;
+  display:none;
+}
+.user-bar:hover .user-dropdown,.user-bar:focus-within .user-dropdown{display:block;}
+.ud-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;font-size:13px;color:var(--text2);cursor:none;transition:all 0.2s;background:none;border:none;width:100%;text-align:left;font-family:'Plus Jakarta Sans',sans-serif;}
+.ud-item:hover{background:var(--surface2);color:var(--text);}
+.ud-item svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+.ud-item.logout{color:var(--red);}
+.ud-divider{height:1px;background:var(--border);margin:4px 0;}
+
+/* APPOINTMENTS LIST MODAL */
+.my-appts-list{display:flex;flex-direction:column;gap:12px;margin-top:16px;}
+.appt-rec{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px;}
+.appt-rec-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+.appt-rec-name{font-size:15px;font-weight:700;color:var(--text);}
+.appt-rec-spec{font-size:12px;color:var(--teal);font-weight:600;}
+.appt-rec-code{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--text3);background:var(--surface2);border:1px solid var(--border);padding:3px 9px;border-radius:6px;}
+.appt-rec-details{font-size:12.5px;color:var(--text3);line-height:1.6;}
+
+/* TOAST */
+.toast{
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:12px;padding:14px 20px;
+  font-size:13.5px;font-weight:600;color:var(--text);
+  box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:10px;
+  transform:translateY(20px);opacity:0;
+  transition:all 0.3s;pointer-events:none;
+}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:2;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1100px){.docs-grid{grid-template-columns:repeat(3,1fr);}.hero-right{display:none;}.ft-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){.appt-grid{grid-template-columns:1fr;}.contact-grid{grid-template-columns:1fr;}.dept-header{grid-template-columns:1fr;}.svc-grid{grid-template-columns:repeat(2,1fr);}.test-grid{grid-template-columns:1fr;}.emrg{grid-template-columns:1fr;text-align:center;}.emrg-r{text-align:center;}}
+@media(max-width:700px){.docs-grid{grid-template-columns:repeat(2,1fr);}.dept-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.nav-center{display:none;}.nav-right .nav-btn{display:none;}.hamburger{display:flex;}.docs-grid{grid-template-columns:1fr;}.dept-grid{grid-template-columns:1fr;}.svc-grid{grid-template-columns:1fr;}.f-row-2{grid-template-columns:1fr;}.ft-grid{grid-template-columns:1fr;}.hero-stats{flex-direction:column;gap:0;}.hstat{padding:14px 20px;}}
 </style>
 </head>
 <body>
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="cur-ring"></div>
 
-<nav>
-  <div class="nav-inner">
-    <div class="logo" onclick="showPage('home')">
-      <div class="logo-icon">✚</div>
-      MediCare
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toastMsg">Done!</span>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand">
+    <svg class="nav-logo" viewBox="0 0 38 38" fill="none">
+      <rect width="38" height="38" rx="10" fill="var(--teal2)" opacity="0.15"/>
+      <rect width="38" height="38" rx="10" fill="none" stroke="var(--teal2)" stroke-width="1"/>
+      <rect x="17" y="8" width="4" height="22" rx="2" fill="var(--teal2)"/>
+      <rect x="8" y="17" width="22" height="4" rx="2" fill="var(--teal2)"/>
+    </svg>
+    <div class="brand-text">
+      <div class="b-name">Medicare</div>
+      <div class="b-sub">Rahim Yar Khan</div>
     </div>
-    <div class="nav-links" id="nav-links">
-      <button class="nav-btn ghost active" onclick="showPage('home')">Home</button>
-      <button class="nav-btn ghost" onclick="showPage('doctors')">Find Doctors</button>
-      <button class="nav-btn ghost" onclick="showPage('services')">Services</button>
-      <button class="nav-btn ghost" onclick="showPage('dashboard')">Dashboard</button>
-      <button class="nav-btn primary" onclick="openLoginModal()">Sign In</button>
+  </div>
+  <ul class="nav-center">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#departments">Departments</a></li>
+    <li><a href="#doctors">Doctors</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+      <div class="tog-knob">
+        <svg class="tog-icon" id="togIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </div>
+    </button>
+    <div id="authButtons" style="display:flex;gap:10px;">
+      <button class="nav-btn nav-btn-ghost" onclick="openModal('loginModal')">Sign In</button>
+      <button class="nav-btn nav-btn-fill" onclick="openModal('registerModal')">Create Account</button>
     </div>
+    <div id="userBarWrap" style="display:none;">
+      <div class="user-bar" tabindex="0">
+        <div class="user-avatar-bar user-bar-avatar" id="navAvatarInitials">U</div>
+        <span class="user-bar-name" id="navUserName">User</span>
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        <div class="user-dropdown">
+          <button class="ud-item" onclick="openModal('myApptsModal')">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            My Appointments
+          </button>
+          <div class="ud-divider"></div>
+          <button class="ud-item logout" onclick="logout()">
+            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+    <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<div id="page-home">
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <h1>Your Health,<br>Our <span>Priority.</span></h1>
-        <p>Book appointments with top-rated doctors, manage your health records, and access world-class medical care — all in one place.</p>
-        <div class="hero-btns">
-          <button class="btn-hero-primary" onclick="showPage('doctors')">Find a Doctor</button>
-          <button class="btn-hero-secondary" onclick="showPage('services')">Our Services</button>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-card"><div class="stat-num">2,400+</div><div class="stat-label">Expert Doctors</div></div>
-        <div class="stat-card"><div class="stat-num">98%</div><div class="stat-label">Patient Satisfaction</div></div>
-        <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">Specialties</div></div>
-        <div class="stat-card"><div class="stat-num">200k+</div><div class="stat-label">Appointments Booked</div></div>
-        <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">Online Support</div></div>
-        <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">Years of Care</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="search-section">
-    <div class="search-box">
-      <div class="search-field">
-        <label>Doctor / Condition</label>
-        <input class="search-input" id="home-search" type="text" placeholder="e.g. Cardiologist, Diabetes..."/>
-      </div>
-      <div class="search-field">
-        <label>Specialty</label>
-        <select class="search-input" id="home-spec">
-          <option value="">All Specialties</option>
-          <option>Cardiology</option><option>Neurology</option><option>Dermatology</option>
-          <option>Orthopedics</option><option>Pediatrics</option><option>General Practice</option>
-        </select>
-      </div>
-      <div class="search-field">
-        <label>Location</label>
-        <select class="search-input" id="home-loc">
-          <option>Any Location</option>
-          <option>Downtown Clinic</option><option>North Medical Center</option>
-          <option>East Hospital</option><option>West Health Hub</option>
-        </select>
-      </div>
-      <button class="btn-search" onclick="doSearch()">🔍 Search</button>
-    </div>
-  </section>
-
-  <div class="main-content">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-sub">Comprehensive healthcare solutions tailored for you</p>
-    <div class="services-grid">
-      <div class="service-card" onclick="showPage('doctors')"><div class="service-icon"></div><h3>Book Appointment</h3><p>Schedule visits with specialists instantly. No waiting in queues.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Emergency Care</h3><p>24/7 emergency medical assistance with rapid response teams.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Pharmacy</h3><p>Online prescription management and home delivery of medicines.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Lab Tests</h3><p>Book diagnostic tests with results delivered to your dashboard.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Telemedicine</h3><p>Consult with doctors from the comfort of your home via video call.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Mental Health</h3><p>Confidential therapy and counselling sessions with certified experts.</p></div>
-    </div>
-  </div>
-
-  <section class="testimonials">
-    <div class="testi-inner">
-      <h2 class="section-title">Trusted by Thousands</h2>
-      <p class="section-sub">What our patients say about their experience</p>
-      <div class="testi-grid">
-        <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Booked my cardiologist appointment in under 2 minutes. The process was incredibly smooth and the confirmation was instant."</p><div class="testi-author"><div class="testi-avatar">👩</div><div><div class="testi-name">Sarah Mitchell</div><div class="testi-role">Patient since 2022</div></div></div></div>
-        <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"MediCare has transformed how I manage my family's healthcare. All appointments in one place is a game changer."</p><div class="testi-author"><div class="testi-avatar">👨</div><div><div class="testi-name">James Okafor</div><div class="testi-role">Patient since 2021</div></div></div></div>
-        <div class="testi-card"><div class="testi-stars">★★★★☆</div><p class="testi-text">"The telemedicine feature saved me a 2-hour drive. My doctor reviewed my test results online and updated my prescription same day."</p><div class="testi-author"><div class="testi-avatar">👩</div><div><div class="testi-name">Aisha Karimi</div><div class="testi-role">Patient since 2023</div></div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">✚ MediCare</div>
-      <p>Delivering compassionate, world-class healthcare — one appointment at a time.</p>
-      <div class="footer-copy">© 2025 MediCare Health Systems. All rights reserved.</div>
-    </div>
-  </footer>
-</div>
-
-<div id="page-doctors" style="display:none">
-  <div class="main-content">
-    <h2 class="section-title">Find Your Doctor</h2>
-    <p class="section-sub" id="doctor-page-sub">Browse our network of specialist physicians</p>
-    <div class="filters-row" id="specialty-filters">
-      <span style="font-size:13px;color:var(--muted);font-weight:600;margin-right:4px">Filter:</span>
-      <div class="filter-chip active" onclick="filterSpec(this,'')">All</div>
-      <div class="filter-chip" onclick="filterSpec(this,'Cardiology')"> Cardiology</div>
-      <div class="filter-chip" onclick="filterSpec(this,'Neurology')">Neurology</div>
-      <div class="filter-chip" onclick="filterSpec(this,'Dermatology')"> Dermatology</div>
-      <div class="filter-chip" onclick="filterSpec(this,'Orthopedics')"> Orthopedics</div>
-      <div class="filter-chip" onclick="filterSpec(this,'Pediatrics')"> Pediatrics</div>
-      <div class="filter-chip" onclick="filterSpec(this,'General Practice')">🩺 General Practice</div>
-    </div>
-    <div class="doctor-grid" id="doctor-grid"></div>
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <a href="#home" onclick="closeMob()">Home</a>
+  <a href="#departments" onclick="closeMob()">Departments</a>
+  <a href="#doctors" onclick="closeMob()">Doctors</a>
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <div class="mob-btns">
+    <button class="nav-btn nav-btn-ghost" onclick="closeMob();openModal('loginModal')">Sign In</button>
+    <button class="nav-btn nav-btn-fill" onclick="closeMob();openModal('registerModal')">Create Account</button>
   </div>
 </div>
 
-<div id="page-services" style="display:none">
-  <div class="main-content">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-sub">Comprehensive care for every health need</p>
-    <div class="services-grid">
-      <div class="service-card"><div class="service-icon"></div><h3>General Consultation</h3><p>Meet with experienced general practitioners for routine checkups and medical advice.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Cardiology</h3><p>Advanced diagnostics and treatments for heart and cardiovascular conditions.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Neurology</h3><p>Specialist care for neurological disorders including migraines, epilepsy, and stroke.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Dentistry</h3><p>Full dental care services from cosmetic to restorative treatments.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Ophthalmology</h3><p>Eye care specialists for vision correction, surgery, and retinal health.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Physiotherapy</h3><p>Rehabilitation and injury recovery with certified physiotherapists.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Diagnostics</h3><p>State-of-the-art laboratory and imaging services with fast turnaround.</p></div>
-      <div class="service-card"><div class="service-icon"></div><h3>Vaccinations</h3><p>Comprehensive immunization programs for children and adults.</p></div>
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-orb ho1"></div>
+  <div class="hero-orb ho2"></div>
+  <div class="hero-content">
+    <div class="hero-chip"><span class="live-dot"></span>20+ Years · Clinical Excellence · RYK</div>
+    <h1><span class="ghost">Advanced</span><br><em>Healthcare</em><br>Redefined.</h1>
+    <p class="hero-p">Medicare Hospital — a premier multi-disciplinary institution delivering compassionate, expert care through advanced diagnostics and experienced consultants serving Punjab's southern region.</p>
+    <div class="hero-btns">
+      <a href="#appointment" class="hbtn-p">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Schedule a Visit
+      </a>
+      <a href="#departments" class="hbtn-g">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Our Departments
+      </a>
     </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num" data-t="50000" data-s="+">0</div><div class="hstat-label">Patients</div></div>
+      <div class="hstat"><div class="hstat-num" data-t="12" data-s="">0</div><div class="hstat-label">Consultants</div></div>
+      <div class="hstat"><div class="hstat-num" data-t="20" data-s=" yrs">0</div><div class="hstat-label">Experience</div></div>
+      <div class="hstat"><div class="hstat-num" data-t="6" data-s="">0</div><div class="hstat-label">Departments</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hc-row">
+        <div class="hc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/><path d="M2 12h20"/></svg></div>
+        <div><div class="hc-title">Advanced Diagnostics</div><div class="hc-sub">1.5T MRI · Multi-Slice CT</div></div>
+      </div>
+      <div class="avail-row"><span class="avail-dot"></span>Available 24 / 7</div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-row">
+        <div class="hc-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div><div class="hc-title">Prof. Dr. Khalid Mahmood</div><div class="hc-sub">Gastroenterology · 18+ yrs</div></div>
+      </div>
+      <div class="hc-meta">
+        <div class="hc-fee">PKR 2,500</div>
+        <div class="hc-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-row">
+        <div class="hc-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div><div class="hc-title">24/7 Emergency</div><div class="hc-sub">Trauma · Critical Care</div></div>
+      </div>
+      <div class="avail-row"><span class="avail-dot"></span>Immediate Response</div>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="sc-line"></div>Scroll to explore</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="m-track">
+    <span class="m-item"><span class="m-dot"></span>Gastroenterology</span><span class="m-item"><span class="m-dot"></span>Laparoscopic Surgery</span><span class="m-item"><span class="m-dot"></span>Obstetrics &amp; Gynecology</span><span class="m-item"><span class="m-dot"></span>Nephrology</span><span class="m-item"><span class="m-dot"></span>Orthopedics</span><span class="m-item"><span class="m-dot"></span>MRI &amp; CT Scan</span><span class="m-item"><span class="m-dot"></span>24/7 Emergency</span><span class="m-item"><span class="m-dot"></span>In-House Pharmacy</span><span class="m-item"><span class="m-dot"></span>Pathology Lab</span>
+    <span class="m-item"><span class="m-dot"></span>Gastroenterology</span><span class="m-item"><span class="m-dot"></span>Laparoscopic Surgery</span><span class="m-item"><span class="m-dot"></span>Obstetrics &amp; Gynecology</span><span class="m-item"><span class="m-dot"></span>Nephrology</span><span class="m-item"><span class="m-dot"></span>Orthopedics</span><span class="m-item"><span class="m-dot"></span>MRI &amp; CT Scan</span><span class="m-item"><span class="m-dot"></span>24/7 Emergency</span><span class="m-item"><span class="m-dot"></span>In-House Pharmacy</span><span class="m-item"><span class="m-dot"></span>Pathology Lab</span>
   </div>
 </div>
 
-<div id="page-dashboard" style="display:none">
-  <div class="dashboard">
-    <div class="dash-header">
-      <div class="dash-greeting">
-        <h2>Good morning, Fahad 👋</h2>
-        <p>Here's your health summary for today</p>
+<!-- DEPARTMENTS -->
+<section class="depts" id="departments">
+  <div class="dept-header">
+    <div class="rv"><div class="s-label">Clinical Specialties</div><h2 class="s-title">Expert Care,<br><em>Every Discipline</em></h2></div>
+    <div class="rv d1"><p class="s-sub">Six specialized departments under one roof, staffed by professors and senior consultants delivering world-class clinical care.</p></div>
+  </div>
+  <div class="dept-grid rv">
+    <div class="dept-tile" onclick="bookFromDept('Gastroenterology')">
+      <div class="dt-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10"/><circle cx="18" cy="6" r="3"/><path d="M12 8v4l3 3"/></svg></div>
+      <div class="dt-name">Gastroenterology</div>
+      <div class="dt-desc">Advanced endoscopy, hepatology and digestive health management by senior faculty.</div>
+      <div class="dt-arrow">Book Now <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+    <div class="dept-tile" onclick="bookFromDept('General & Laparoscopic Surgery')">
+      <div class="dt-icon"><svg viewBox="0 0 24 24"><path d="M14.5 4.5L3 16l5 5L19.5 9.5"/><path d="M12 7l5 5"/><path d="M5 20l-3 1 1-3"/></svg></div>
+      <div class="dt-name">General Surgery</div>
+      <div class="dt-desc">Minimally invasive laparoscopic and complex open surgical procedures.</div>
+      <div class="dt-arrow">Book Now <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+    <div class="dept-tile" onclick="bookFromDept('Obstetrics & Gynecology')">
+      <div class="dt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 12v10"/><path d="M9 18l3 3 3-3"/><path d="M9 15h6"/></svg></div>
+      <div class="dt-name">Obstetrics &amp; Gynecology</div>
+      <div class="dt-desc">Complete maternal care, prenatal monitoring and women's health services.</div>
+      <div class="dt-arrow">Book Now <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+    <div class="dept-tile" onclick="bookFromDept('Nephrology')">
+      <div class="dt-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5.5 5 9c0 5 7 13 7 13s7-8 7-13c0-3.5-3-7-7-7z"/></svg></div>
+      <div class="dt-name">Nephrology</div>
+      <div class="dt-desc">Kidney disease management, renal therapy and full dialysis services on-site.</div>
+      <div class="dt-arrow">Book Now <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+    <div class="dept-tile" onclick="bookFromDept('Orthopedics')">
+      <div class="dt-icon"><svg viewBox="0 0 24 24"><path d="M6 20l6-16 6 16"/><path d="M8.5 14h7"/></svg></div>
+      <div class="dt-name">Orthopedics</div>
+      <div class="dt-desc">Bone, joint and spinal care including surgical and rehabilitation pathways.</div>
+      <div class="dt-arrow">Book Now <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+    <div class="dept-tile" onclick="bookFromDept('Emergency Medicine')">
+      <div class="dt-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <div class="dt-name">Emergency Medicine</div>
+      <div class="dt-desc">24-hour emergency response, trauma care and critical stabilization unit.</div>
+      <div class="dt-arrow">Book Now <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS - 12 TOTAL -->
+<section class="doctors" id="doctors">
+  <div class="rv"><div class="s-label">Our Medical Team</div><h2 class="s-title">12 Distinguished<br><em>Consultants</em></h2></div>
+  <div class="docs-grid" id="docsGrid">
+    <!-- Dynamically rendered -->
+  </div>
+</section>
+
+<!-- APPOINTMENT SECTION -->
+<section class="appt-sect" id="appointment">
+  <div class="appt-grid">
+    <div>
+      <div class="rv"><div class="s-label">Book a Visit</div><h2 class="s-title">Schedule Your<br><em>Appointment</em></h2><p class="s-sub" style="margin-top:4px;">Our team confirms every booking within 60 minutes. Evening and weekend slots available.</p></div>
+      <div class="appt-feats rv">
+        <div class="af"><div class="af-num">01</div><div class="af-text"><h4>Create an Account First</h4><p>Register to book appointments, track history and receive confirmation codes.</p></div></div>
+        <div class="af"><div class="af-num">02</div><div class="af-text"><h4>Instant Booking Code</h4><p>A unique code is generated in your name upon every confirmed appointment.</p></div></div>
+        <div class="af"><div class="af-num">03</div><div class="af-text"><h4>Email Confirmation</h4><p>A full confirmation is sent to your registered email address within minutes.</p></div></div>
+        <div class="af"><div class="af-num">04</div><div class="af-text"><h4>Phone Follow-Up</h4><p>Our team will call your registered phone number to confirm the time slot.</p></div></div>
       </div>
-      <button class="nav-btn primary" onclick="showPage('doctors')">+ Book Appointment</button>
     </div>
-    <div class="stats-row">
-      <div class="stat-widget"><div class="icon"></div><div class="num" id="stat-total">0</div><div class="label">Total Appointments</div></div>
-      <div class="stat-widget"><div class="icon"></div><div class="num" id="stat-upcoming">0</div><div class="label">Upcoming</div></div>
-      <div class="stat-widget"><div class="icon"></div><div class="num" id="stat-completed">0</div><div class="label">Completed</div></div>
-      <div class="stat-widget"><div class="icon"></div><div class="num" id="stat-docs">0</div><div class="label">Doctors Visited</div></div>
+    <div class="rv">
+      <div id="apptFormWrap">
+        <!-- Form inserted by JS based on auth state -->
+      </div>
     </div>
-    <div class="page-tabs">
-      <button class="page-tab active" onclick="dashTab(this,'upcoming')">Upcoming</button>
-      <button class="page-tab" onclick="dashTab(this,'all')">All Appointments</button>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="rv"><div class="s-label">What We Offer</div><h2 class="s-title">Comprehensive<br><em>Medical Services</em></h2></div>
+  <div class="svc-grid rv">
+    <div class="svc-tile"><div class="svc-icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/><path d="M2 12h20"/></svg></div><div class="svc-name">MRI Imaging</div><div class="svc-desc">High-resolution 1.5T MRI with rapid digital reporting and specialist review within hours.</div></div>
+    <div class="svc-tile"><div class="svc-icon-box"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="svc-name">CT Scan</div><div class="svc-desc">Multi-slice computed tomography for precise cross-sectional imaging across all body systems.</div></div>
+    <div class="svc-tile"><div class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="svc-name">Inpatient Care</div><div class="svc-desc">Private, semi-private and general ward accommodations with 24-hour nursing supervision.</div></div>
+    <div class="svc-tile"><div class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div><div class="svc-name">In-House Pharmacy</div><div class="svc-desc">Fully stocked dispensary open during all consultation hours with licensed pharmacists.</div></div>
+    <div class="svc-tile"><div class="svc-icon-box"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="svc-name">24/7 Emergency</div><div class="svc-desc">Round-the-clock emergency department with dedicated trauma team and critical care unit.</div></div>
+    <div class="svc-tile"><div class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4"/><path d="M3 16.5V19a2 2 0 0 0 2 2h3.5"/><path d="M9 21h6"/><path d="M15 21h3a2 2 0 0 0 2-2v-2.5"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><circle cx="12" cy="12" r="3"/></svg></div><div class="svc-name">Pathology Lab</div><div class="svc-desc">On-site laboratory for complete blood work, urinalysis, culture and histopathology.</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="rv"><div class="s-label">Patient Stories</div><h2 class="s-title">Trusted Across<br><em>The Region</em></h2></div>
+  <div class="test-grid">
+    <div class="test-card rv">
+      <span class="test-qm">"</span>
+      <p class="test-body">The gastroenterology team at Medicare is extraordinary. Prof. Khalid diagnosed my condition swiftly and the entire staff was professional and deeply attentive throughout my treatment.</p>
+      <div class="test-sep"></div>
+      <div class="test-author">
+        <div class="test-init" style="background:linear-gradient(135deg,#0D9488,#0B6E65);">A</div>
+        <div><div class="test-name-w">Ahmed Siddiqui</div><div class="test-loc">Rahim Yar Khan</div><div class="test-rating"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div>
+      </div>
     </div>
-    <div class="appointments-section">
-      <div id="appt-list"></div>
+    <div class="test-card rv d1">
+      <span class="test-qm">"</span>
+      <p class="test-body">My laparoscopic surgery here was seamless. Every step was managed with utmost clinical precision and genuine human care from admission through to full recovery.</p>
+      <div class="test-sep"></div>
+      <div class="test-author">
+        <div class="test-init" style="background:linear-gradient(135deg,#3B82F6,#1D4ED8);">F</div>
+        <div><div class="test-name-w">Fatima Hussain</div><div class="test-loc">Bahawalpur</div><div class="test-rating"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div>
+      </div>
     </div>
+    <div class="test-card rv d2">
+      <span class="test-qm">"</span>
+      <p class="test-body">Dr. Ayesha provided exceptional prenatal care throughout my pregnancy. She was thorough, compassionate and always available. I recommend Medicare to every family in the region.</p>
+      <div class="test-sep"></div>
+      <div class="test-author">
+        <div class="test-init" style="background:linear-gradient(135deg,#EC4899,#9D174D);">Z</div>
+        <div><div class="test-name-w">Zainab Malik</div><div class="test-loc">Rahim Yar Khan</div><div class="test-rating"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY -->
+<div class="emrg">
+  <div>
+    <div class="emrg-tag"><span></span>Emergency Response Unit</div>
+    <h2>Critical care,<br>any hour.<br>We never close.</h2>
+  </div>
+  <div class="emrg-r">
+    <a class="emrg-ph" href="tel:+92681000000">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.23h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +92-68-1-000000
+    </a>
+    <div class="emrg-note">Available 24 hours · 7 days a week</div>
   </div>
 </div>
 
-<div id="booking-modal" style="display:none">
-  <div class="modal-overlay" onclick="closeModal(event)">
-    <div class="modal" onclick="event.stopPropagation()">
-      <div class="modal-header">
-        <h2 id="modal-title">Book Appointment</h2>
-        <button class="close-btn" onclick="closeModal()">✕</button>
-      </div>
-      <div class="modal-body" id="modal-body"></div>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="rv"><div class="s-label">Find Us</div><h2 class="s-title">Visit or<br><em>Contact Us</em></h2></div>
+  <div class="contact-grid">
+    <div class="rv">
+      <div class="c-item"><div class="ci-box"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ci-lbl">Location</div><div class="ci-val">Medicare Hospital, Main Road<br>Rahim Yar Khan, Punjab, Pakistan</div></div></div>
+      <div class="c-item"><div class="ci-box"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.23h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ci-lbl">Phone</div><div class="ci-val">+92-68-1-000000 (Emergency)<br>+92-300-0000000 (Appointments)</div></div></div>
+      <div class="c-item"><div class="ci-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="ci-lbl">OPD Hours</div><div class="ci-val">Monday – Saturday: 9:00 AM – 8:00 PM<br>Sunday: Emergency Only (24/7)</div></div></div>
+      <div class="c-item"><div class="ci-box"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-lbl">Email</div><div class="ci-val">info@medicarehospital.pk<br>appointments@medicarehospital.pk</div></div></div>
     </div>
+    <div class="rv">
+      <div class="map-box">
+        <div class="map-ping"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4>Medicare Hospital</h4>
+        <p>Rahim Yar Khan, Punjab, Pakistan</p>
+        <a class="map-go" href="https://maps.google.com/?q=Rahim+Yar+Khan+Hospital" target="_blank">Open in Google Maps <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <svg width="36" height="36" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="10" fill="var(--teal2)" opacity="0.15"/><rect width="38" height="38" rx="10" fill="none" stroke="var(--teal2)" stroke-width="1"/><rect x="17" y="8" width="4" height="22" rx="2" fill="var(--teal2)"/><rect x="8" y="17" width="22" height="4" rx="2" fill="var(--teal2)"/></svg>
+        <div class="brand-text"><div class="b-name">Medicare</div><div class="b-sub">Rahim Yar Khan</div></div>
+      </div>
+      <p class="ft-brand-desc">Providing ethical, advanced, and compassionate medical care to Rahim Yar Khan for over 20 years. Your health is our highest priority.</p>
+      <div class="ft-socials">
+        <a class="ft-soc" href="#"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a class="ft-soc" href="#"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a class="ft-soc" href="#"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+        <a class="ft-soc" href="#"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+      </div>
+    </div>
+    <div class="ft-col"><h5>Departments</h5><ul><li><a href="#">Gastroenterology</a></li><li><a href="#">General Surgery</a></li><li><a href="#">Obstetrics &amp; Gynecology</a></li><li><a href="#">Nephrology</a></li><li><a href="#">Orthopedics</a></li><li><a href="#">Emergency Medicine</a></li></ul></div>
+    <div class="ft-col"><h5>Services</h5><ul><li><a href="#">MRI Imaging</a></li><li><a href="#">CT Scan</a></li><li><a href="#">24/7 Emergency</a></li><li><a href="#">Inpatient Care</a></li><li><a href="#">In-House Pharmacy</a></li><li><a href="#">Pathology Lab</a></li></ul></div>
+    <div class="ft-col"><h5>Patient Info</h5><ul><li><a href="#appointment">Book Appointment</a></li><li><a href="#">My Appointments</a></li><li><a href="#">Visiting Hours</a></li><li><a href="#">Patient Rights</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Insurance Info</a></li></ul></div>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2025 Medicare Hospital, Rahim Yar Khan. All rights reserved.</p>
+    <p>Designed for the community we serve.</p>
+  </div>
+</footer>
+
+<!-- ════ MODALS ════ -->
+
+<!-- REGISTER -->
+<div class="overlay" id="registerModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Create Account</div>
+      <button class="close-btn" onclick="closeModal('registerModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <p class="modal-sub">Create a free account to book and manage appointments.</p>
+    <div class="f-row-2">
+      <div class="f-group"><label class="f-label">First Name <span class="req">*</span></label><input type="text" id="r_first" class="f-input" placeholder="Muhammad"><div class="f-err" id="re_first">Required</div></div>
+      <div class="f-group"><label class="f-label">Last Name <span class="req">*</span></label><input type="text" id="r_last" class="f-input" placeholder="Khan"><div class="f-err" id="re_last">Required</div></div>
+    </div>
+    <div class="f-group"><label class="f-label">Email Address <span class="req">*</span></label><input type="email" id="r_email" class="f-input" placeholder="you@example.com"><div class="f-err" id="re_email">Enter a valid email</div></div>
+    <div class="f-group"><label class="f-label">Phone Number <span class="req">*</span></label><input type="tel" id="r_phone" class="f-input" placeholder="+92 300 0000000"><div class="f-err" id="re_phone">Enter a valid phone number</div></div>
+    <div class="f-group"><label class="f-label">Password <span class="req">*</span></label><input type="password" id="r_pass" class="f-input" placeholder="Min. 8 characters"><div class="f-err" id="re_pass">Min. 8 characters required</div></div>
+    <div class="f-group"><label class="f-label">Confirm Password <span class="req">*</span></label><input type="password" id="r_pass2" class="f-input" placeholder="Repeat password"><div class="f-err" id="re_pass2">Passwords do not match</div></div>
+    <button class="f-submit" onclick="doRegister()">
+      <span id="regBtnTxt">Create Account</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <p class="auth-switch">Already have an account? <a onclick="switchModal('registerModal','loginModal')">Sign in</a></p>
   </div>
 </div>
 
-<div id="login-modal" style="display:none">
-  <div class="modal-overlay" onclick="closeLoginModal(event)">
-    <div class="modal" onclick="event.stopPropagation()" style="max-width:420px">
-      <div class="modal-header">
-        <h2>Welcome to MediCare</h2>
-        <button class="close-btn" onclick="closeLoginModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="page-tabs" style="margin-bottom:24px">
-          <button class="page-tab active" onclick="loginTab(this,'signin')">Sign In</button>
-          <button class="page-tab" onclick="loginTab(this,'register')">Register</button>
-        </div>
-        <div id="signin-form">
-          <div class="form-group"><label>Email <span>*</span></label><input class="form-input" id="login-email" type="email" placeholder="you@example.com"/><div class="error-msg" id="login-email-err" style="display:none"></div></div>
-          <div class="form-group"><label>Password <span>*</span></label><input class="form-input" id="login-pass" type="password" placeholder="••••••••"/><div class="error-msg" id="login-pass-err" style="display:none"></div></div>
-          <button class="btn-confirm" onclick="doLogin()" style="margin-top:8px">Sign In</button>
-          <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:12px">Use any email + password to sign in for demo</p>
-        </div>
-        <div id="register-form" style="display:none">
-          <div class="input-row">
-            <div class="form-group"><label>First Name <span>*</span></label><input class="form-input" id="reg-first" type="text" placeholder="John"/><div class="error-msg" id="reg-first-err" style="display:none"></div></div>
-            <div class="form-group"><label>Last Name <span>*</span></label><input class="form-input" id="reg-last" type="text" placeholder="Doe"/></div>
-          </div>
-          <div class="form-group"><label>Email <span>*</span></label><input class="form-input" id="reg-email" type="email" placeholder="you@example.com"/><div class="error-msg" id="reg-email-err" style="display:none"></div></div>
-          <div class="form-group"><label>Password <span>*</span></label><input class="form-input" id="reg-pass" type="password" placeholder="Min 8 characters"/><div class="error-msg" id="reg-pass-err" style="display:none"></div></div>
-          <div class="form-group"><label>Date of Birth</label><input class="form-input" id="reg-dob" type="date"/></div>
-          <button class="btn-confirm" onclick="doRegister()" style="margin-top:8px">Create Account</button>
-        </div>
-      </div>
+<!-- LOGIN -->
+<div class="overlay" id="loginModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Welcome Back</div>
+      <button class="close-btn" onclick="closeModal('loginModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
+    <p class="modal-sub">Sign in to manage your appointments.</p>
+    <div class="f-group"><label class="f-label">Email Address <span class="req">*</span></label><input type="email" id="l_email" class="f-input" placeholder="you@example.com"><div class="f-err" id="le_email">Enter your email</div></div>
+    <div class="f-group"><label class="f-label">Password <span class="req">*</span></label><input type="password" id="l_pass" class="f-input" placeholder="Your password"><div class="f-err" id="le_pass">Enter your password</div></div>
+    <button class="f-submit" onclick="doLogin()">
+      <span id="loginBtnTxt">Sign In</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <p class="auth-switch">Don't have an account? <a onclick="switchModal('loginModal','registerModal')">Create one free</a></p>
+  </div>
+</div>
+
+<!-- DOCTOR QUICK BOOKING MODAL -->
+<div class="overlay" id="quickModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Book Appointment</div>
+      <button class="close-btn" onclick="closeModal('quickModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <p class="modal-sub" id="quickModalSub">Doctor pre-selected.</p>
+    <div class="f-group"><label class="f-label">Department</label><input type="text" id="q_dept" class="f-input" readonly style="opacity:0.7;"></div>
+    <div class="f-group"><label class="f-label">Doctor</label><input type="text" id="q_doc" class="f-input" readonly style="opacity:0.7;"></div>
+    <div class="f-row-2">
+      <div class="f-group"><label class="f-label">Preferred Date <span class="req">*</span></label><input type="date" id="q_date" class="f-input"><div class="f-err" id="qe_date">Select a future date</div></div>
+      <div class="f-group"><label class="f-label">Time Slot <span class="req">*</span></label><select id="q_time" class="f-input"><option value="">Select...</option><option>9:00 AM – 10:00 AM</option><option>10:00 AM – 11:00 AM</option><option>11:00 AM – 12:00 PM</option><option>2:00 PM – 3:00 PM</option><option>3:00 PM – 4:00 PM</option><option>5:00 PM – 6:00 PM</option></select><div class="f-err" id="qe_time">Select a time</div></div>
+    </div>
+    <div class="f-group"><label class="f-label">Visit Type</label><select id="q_type" class="f-input"><option>Consultation</option><option>Follow-Up</option><option>Diagnostic / Tests</option></select></div>
+    <div class="f-group"><label class="f-label">Brief Concern</label><textarea id="q_concern" class="f-input" rows="3" placeholder="Describe your symptoms..."></textarea></div>
+    <button class="f-submit" id="quickSubmitBtn" onclick="submitQuick()">
+      <span id="quickBtnTxt">Confirm Appointment</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <div id="quickConfirm" style="display:none;margin-top:18px;"></div>
+  </div>
+</div>
+
+<!-- MY APPOINTMENTS MODAL -->
+<div class="overlay" id="myApptsModal">
+  <div class="modal wide">
+    <div class="modal-head">
+      <div class="modal-title">My Appointments</div>
+      <button class="close-btn" onclick="closeModal('myApptsModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <p class="modal-sub">All your booked appointments and confirmation codes.</p>
+    <div id="myApptsList"></div>
   </div>
 </div>
 
 <script>
+// ════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════
 const DOCTORS = [
-  {id:1,name:'Dr.Sarah ',spec:'Cardiology',hospital:'City Heart Center',rating:4.9,reviews:312,fee:120,emoji:'👨‍⚕️',tags:['Heart Disease','ECG','Hypertension'],avail:'Available Today'},
-  {id:2,name:'Dr.Ali',spec:'Neurology',hospital:'Neuro Institute',rating:4.8,reviews:245,fee:150,emoji:'👨‍⚕️',tags:['Migraines','Epilepsy','Stroke'],avail:'Next: Tomorrow'},
-  {id:3,name:'Dr.Usman Patel',spec:'Dermatology',hospital:'Skin & Wellness Clinic',rating:4.9,reviews:189,fee:90,emoji:'👨‍⚕️',tags:['Acne','Eczema','Laser'],avail:'Available Today'},
-  {id:4,name:'Dr.Hamza',spec:'Orthopedics',hospital:'Bone & Joint Center',rating:4.7,reviews:156,fee:130,emoji:'👨‍⚕️',tags:['Joint Pain','Sports Injury','Spine'],avail:'Available Today'},
-  {id:5,name:'Dr.Maryam',spec:'Pediatrics',hospital:"Children's Health Hub",rating:5.0,reviews:421,fee:85,emoji:'👨‍⚕️',tags:['Child Health','Vaccines','Growth'],avail:'Available Today'},
-  {id:6,name:'Dr.Amir',spec:'General Practice',hospital:'Downtown Clinic',rating:4.6,reviews:380,fee:60,emoji:'👨‍⚕️',tags:['Checkups','Flu','Referrals'],avail:'Next: Tomorrow'},
-  {id:7,name:'Dr.Hassan',spec:'Cardiology',hospital:'git init Medical Center',rating:4.8,reviews:290,fee:135,emoji:'👨‍⚕️',tags:['Arrhythmia','Echo','Pacemaker'],avail:'Available Today'},
-  {id:8,name:'Dr.Umar',spec:'Neurology',hospital:'Brain Health Clinic',rating:4.7,reviews:178,fee:145,emoji:'👨‍⚕️',tags:['Memory Disorders','MS',"Parkinson's"],avail:'Next: 2 Days'},
+  {name:'Prof. Dr. Khalid Mahmood',rank:'Professor',spec:'Gastroenterology & Hepatology',dept:'Gastroenterology',exp:'18+ yrs',fee:'PKR 2,500',rating:5,grad:'#ECFDF5,#D1FAE5',sc:'#0D9488'},
+  {name:'Dr. Ayesha Siddiqui',rank:'Consultant',spec:'Obstetrics & Gynecology',dept:'Obstetrics & Gynecology',exp:'12+ yrs',fee:'PKR 2,000',rating:5,grad:'#EFF6FF,#DBEAFE',sc:'#3B82F6'},
+  {name:'Prof. Dr. Tariq Bashir',rank:'Professor',spec:'General & Laparoscopic Surgery',dept:'General & Laparoscopic Surgery',exp:'20+ yrs',fee:'PKR 3,000',rating:5,grad:'#FFF7ED,#FED7AA',sc:'#F97316'},
+  {name:'Dr. Imran Qureshi',rank:'Consultant',spec:'Nephrology & Dialysis',dept:'Nephrology',exp:'15+ yrs',fee:'PKR 1,800',rating:4,grad:'#F5F3FF,#EDE9FE',sc:'#8B5CF6'},
+  {name:'Prof. Dr. Naseem Akhtar',rank:'Professor',spec:'Orthopedic Surgery',dept:'Orthopedics',exp:'22+ yrs',fee:'PKR 2,800',rating:5,grad:'#FFF1F2,#FFE4E6',sc:'#F43F5E'},
+  {name:'Dr. Sara Naqvi',rank:'Consultant',spec:'Obstetrics & Gynecology',dept:'Obstetrics & Gynecology',exp:'10+ yrs',fee:'PKR 1,800',rating:5,grad:'#FDF4FF,#F3E8FF',sc:'#A855F7'},
+  {name:'Prof. Dr. Zubair Hassan',rank:'Professor',spec:'Gastroenterology',dept:'Gastroenterology',exp:'17+ yrs',fee:'PKR 2,200',rating:5,grad:'#F0FDF4,#DCFCE7',sc:'#22C55E'},
+  {name:'Dr. Faisal Raza',rank:'Consultant',spec:'Emergency Medicine',dept:'Emergency Medicine',exp:'9+ yrs',fee:'PKR 1,500',rating:4,grad:'#FFF8ED,#FEF3C7',sc:'#F59E0B'},
+  {name:'Prof. Dr. Amna Khalid',rank:'Professor',spec:'Nephrology',dept:'Nephrology',exp:'14+ yrs',fee:'PKR 2,000',rating:5,grad:'#ECFEFF,#CFFAFE',sc:'#06B6D4'},
+  {name:'Dr. Hassan Mirza',rank:'Consultant',spec:'General Surgery',dept:'General & Laparoscopic Surgery',exp:'11+ yrs',fee:'PKR 2,200',rating:4,grad:'#F7F8FF,#E0E7FF',sc:'#6366F1'},
+  {name:'Prof. Dr. Rukhsana Pasha',rank:'Professor',spec:'Orthopedics',dept:'Orthopedics',exp:'19+ yrs',fee:'PKR 2,600',rating:5,grad:'#FEF2F2,#FEE2E2',sc:'#EF4444'},
+  {name:'Dr. Bilal Anwar',rank:'Consultant',spec:'Emergency & Critical Care',dept:'Emergency Medicine',exp:'8+ yrs',fee:'PKR 1,400',rating:4,grad:'#F0FDF4,#D1FAE5',sc:'#10B981'},
 ];
-const DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const TIMES=['9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM'];
-const BOOKED_SLOTS={0:[2,5,9],1:[0,3,7,11],2:[1,4,8],3:[2,6,10],4:[0,5,9]};
-let appointments=[],currentDoctor=null,selectedDate=0,selectedSlot=null,currentSpec='',apptCounter=1000,dashView='upcoming';
 
-function getDates(){const d=[];for(let i=0;i<5;i++){const x=new Date();x.setDate(x.getDate()+i);d.push(x);}return d;}
+// ════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════
+let currentUser = null;
+let appointments = [];
+const TODAY = new Date().toISOString().split('T')[0];
 
-function showPage(page){
-  ['home','doctors','services','dashboard'].forEach(p=>{document.getElementById('page-'+p).style.display=p===page?'block':'none';});
-  document.querySelectorAll('.nav-btn.ghost').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.nav-btn.ghost').forEach(b=>{if(b.textContent.toLowerCase().includes(page)||(page==='home'&&b.textContent==='Home'))b.classList.add('active');});
-  if(page==='doctors')renderDoctors();
-  if(page==='dashboard')renderDashboard();
-  window.scrollTo({top:0,behavior:'smooth'});
+// ════════════════════════════════════════
+// CURSOR
+// ════════════════════════════════════════
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-5}px,${my-5}px)`;});
+(function loop(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.transform=`translate(${rx-18}px,${ry-18}px)`;requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,[onclick]').forEach(el=>{el.addEventListener('mouseenter',()=>cur.style.transform+=' scale(2.2)');el.addEventListener('mouseleave',()=>cur.style.transform=cur.style.transform.replace(/ scale\([^)]+\)/,''));});
+
+// ════════════════════════════════════════
+// THEME
+// ════════════════════════════════════════
+const html=document.documentElement;
+function setTheme(t){
+  html.setAttribute('data-theme',t);
+  localStorage.setItem('mcTheme',t);
+  const icon=document.getElementById('togIcon');
+  if(t==='light'){icon.innerHTML='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';}
+  else{icon.innerHTML='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';}
+}
+document.getElementById('themeToggle').addEventListener('click',()=>{setTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');});
+const saved=localStorage.getItem('mcTheme');if(saved)setTheme(saved);
+
+// ════════════════════════════════════════
+// NAV
+// ════════════════════════════════════════
+window.addEventListener('scroll',()=>document.getElementById('nav').style.boxShadow=scrollY>10?'0 2px 24px rgba(0,0,0,0.2)':'none');
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('mobNav').classList.toggle('open'));
+function closeMob(){document.getElementById('mobNav').classList.remove('open');}
+
+// ════════════════════════════════════════
+// REVEAL
+// ════════════════════════════════════════
+const rvObs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.1});
+document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
+
+// ════════════════════════════════════════
+// COUNTERS
+// ════════════════════════════════════════
+function animCount(el,t,s){let v=0;const step=t/(1800/16);const timer=setInterval(()=>{v+=step;if(v>=t){el.textContent=t.toLocaleString()+s;clearInterval(timer);}else el.textContent=Math.floor(v).toLocaleString()+s;},16);}
+const ctObs=new IntersectionObserver(en=>{if(en[0].isIntersecting){document.querySelectorAll('.hstat-num[data-t]').forEach(el=>animCount(el,+el.dataset.t,el.dataset.s||''));ctObs.disconnect();}},{threshold:0.5});
+const hs=document.querySelector('.hero-stats');if(hs)ctObs.observe(hs);
+
+// ════════════════════════════════════════
+// RENDER DOCTORS
+// ════════════════════════════════════════
+function starsSVG(n){return Array.from({length:5},(_,i)=>`<svg viewBox="0 0 24 24" style="opacity:${i<n?1:0.25};"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`).join('');}
+function renderDoctors(){
+  const grid=document.getElementById('docsGrid');
+  grid.innerHTML=DOCTORS.map((d,i)=>`
+  <div class="doc-card rv ${['','d1','d2','d3'][i%4]}">
+    <div class="doc-img" style="background:linear-gradient(160deg,${d.grad});">
+      <div class="doc-avatar-wrap">
+        <svg viewBox="0 0 52 52" fill="none">
+          <circle cx="26" cy="18" r="10" fill="${d.sc}" opacity="0.15" stroke="${d.sc}" stroke-width="1.5"/>
+          <path d="M8 46c0-9.941 8.059-18 18-18s18 8.059 18 18" stroke="${d.sc}" stroke-width="1.5" stroke-linecap="round"/>
+          ${d.rank==='Professor'?`<line x1="26" y1="10" x2="26" y2="26" stroke="${d.sc}" stroke-width="1.5"/><line x1="18" y1="18" x2="34" y2="18" stroke="${d.sc}" stroke-width="1.5"/>`:''}
+        </svg>
+      </div>
+      <div class="doc-rank">${d.rank}</div>
+    </div>
+    <div class="doc-body">
+      <div class="doc-name">${d.name}</div>
+      <div class="doc-spec">${d.spec}</div>
+      <div class="doc-row">
+        <span class="doc-exp">${d.exp} experience</span>
+        <span class="doc-fee">${d.fee}</span>
+      </div>
+      <div class="doc-stars">${starsSVG(d.rating)}</div>
+      <button class="doc-book-btn" onclick="bookDoc(${i})">
+        Book Appointment
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>`).join('');
+  document.querySelectorAll('.doc-card.rv').forEach(el=>rvObs.observe(el));
+}
+renderDoctors();
+
+// ════════════════════════════════════════
+// APPOINTMENT FORM (section)
+// ════════════════════════════════════════
+function renderApptForm(){
+  const wrap=document.getElementById('apptFormWrap');
+  if(!currentUser){
+    wrap.innerHTML=`
+    <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:22px;padding:40px;text-align:center;box-shadow:var(--shadow-sm);">
+      <div style="width:64px;height:64px;border-radius:50%;background:var(--teal-glow);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M12 11v4M10 13h4" stroke-width="1.5"/></svg>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:8px;">Account Required</div>
+      <p style="font-size:14px;color:var(--text3);line-height:1.7;margin-bottom:28px;">Create a free account or sign in to book appointments, receive booking codes and track your history.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="f-submit" style="width:auto;padding:13px 28px;" onclick="openModal('registerModal')">Create Free Account</button>
+        <button onclick="openModal('loginModal')" style="padding:13px 28px;border-radius:11px;border:1.5px solid var(--border2);background:transparent;color:var(--teal);font-size:14px;font-weight:700;cursor:none;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.25s;">Sign In</button>
+      </div>
+    </div>`;
+    return;
+  }
+  // Logged in — show form
+  const td=TODAY;
+  wrap.innerHTML=`
+  <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:22px;padding:36px;box-shadow:var(--shadow-sm);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+      <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--teal2),var(--teal3));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:white;">${currentUser.first[0].toUpperCase()}</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--text);">Booking for ${currentUser.first} ${currentUser.last}</div>
+        <div style="font-size:12px;color:var(--text3);">${currentUser.email}</div>
+      </div>
+    </div>
+    <div style="height:1px;background:var(--border);margin:16px 0 22px;"></div>
+    <div class="f-row-2">
+      <div class="f-group"><label class="f-label">Department <span class="req">*</span></label><select id="af_dept" class="f-input" onchange="updateDocDropdown()"><option value="">Select...</option>${[...new Set(DOCTORS.map(d=>d.dept))].map(d=>`<option>${d}</option>`).join('')}</select><div class="f-err" id="afe_dept">Select a department</div></div>
+      <div class="f-group"><label class="f-label">Doctor <span class="req">*</span></label><select id="af_doc" class="f-input"><option value="">Select department first</option></select><div class="f-err" id="afe_doc">Select a doctor</div></div>
+    </div>
+    <div class="f-row-2">
+      <div class="f-group"><label class="f-label">Preferred Date <span class="req">*</span></label><input type="date" id="af_date" class="f-input" min="${td}"><div class="f-err" id="afe_date">Select a future date</div></div>
+      <div class="f-group"><label class="f-label">Time Slot <span class="req">*</span></label><select id="af_time" class="f-input"><option value="">Select...</option><option>9:00 AM – 10:00 AM</option><option>10:00 AM – 11:00 AM</option><option>11:00 AM – 12:00 PM</option><option>2:00 PM – 3:00 PM</option><option>3:00 PM – 4:00 PM</option><option>5:00 PM – 6:00 PM</option></select><div class="f-err" id="afe_time">Select a time</div></div>
+    </div>
+    <div class="f-row-2">
+      <div class="f-group"><label class="f-label">Visit Type</label><select id="af_type" class="f-input"><option>Consultation</option><option>Follow-Up</option><option>Diagnostic / Tests</option><option>Urgent</option></select></div>
+      <div style="display:flex;align-items:flex-end;padding-bottom:16px;font-size:13px;color:var(--text3);">Confirmation sent to your email &amp; phone.</div>
+    </div>
+    <div class="f-group"><label class="f-label">Brief Concern</label><textarea id="af_concern" class="f-input" rows="3" placeholder="Describe your symptoms or reason for visit..."></textarea></div>
+    <button class="f-submit" id="afSubmitBtn" onclick="submitMainAppt()">
+      <span id="afBtnTxt">Confirm Appointment</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <div id="afConfirmBox" style="display:none;margin-top:20px;"></div>
+  </div>`;
 }
 
-function renderDoctors(doctors){
-  const list=doctors||DOCTORS.filter(d=>!currentSpec||d.spec===currentSpec);
-  const grid=document.getElementById('doctor-grid');
-  if(!list.length){grid.innerHTML='<div class="empty-state"><div class="big-icon">🔍</div><p>No doctors found.</p></div>';return;}
-  grid.innerHTML=list.map(d=>`<div class="doctor-card"><div class="doc-header"><div class="doc-avatar">${d.emoji}</div><div class="doc-info"><h3>${d.name}</h3><p>${d.spec}</p><div class="hospital">${d.hospital}</div><div class="rating">★ ${d.rating} <span>(${d.reviews} reviews)</span></div></div></div><div class="doc-tags">${d.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div><div class="doc-meta"><div class="fee">$${d.fee} <span>/ visit</span></div><div class="availability"><span class="dot"></span>${d.avail}</div></div><button class="btn-book" onclick="openBooking(${d.id})">Book Appointment</button></div>`).join('');
+function updateDocDropdown(){
+  const dept=document.getElementById('af_dept').value;
+  const docSel=document.getElementById('af_doc');
+  const docs=DOCTORS.filter(d=>d.dept===dept);
+  docSel.innerHTML=docs.length?docs.map((d,i)=>`<option value="${DOCTORS.indexOf(d)}">${d.name} — ${d.fee}</option>`).join(''):'<option value="">No doctors for this dept</option>';
 }
 
-function filterSpec(el,spec){
-  currentSpec=spec;
-  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
-  el.classList.add('active');renderDoctors();
+renderApptForm();
+
+// ════════════════════════════════════════
+// BOOKING CODE GENERATOR
+// ════════════════════════════════════════
+function genCode(name){
+  const initials=name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,3);
+  const num=Math.floor(100000+Math.random()*900000);
+  return `MC-${initials}-${num}`;
 }
 
-function doSearch(){
-  const q=document.getElementById('home-search').value.toLowerCase();
-  const spec=document.getElementById('home-spec').value;
-  showPage('doctors');
-  setTimeout(()=>{
-    let list=DOCTORS;
-    if(spec)list=list.filter(d=>d.spec===spec);
-    if(q)list=list.filter(d=>d.name.toLowerCase().includes(q)||d.spec.toLowerCase().includes(q)||d.tags.some(t=>t.toLowerCase().includes(q)));
-    document.getElementById('doctor-page-sub').textContent=`Found ${list.length} doctor${list.length!==1?'s':''} for your search`;
-    renderDoctors(list);
-  },50);
+// ════════════════════════════════════════
+// CONFIRMATION CARD HTML
+// ════════════════════════════════════════
+function confirmCardHTML(code,docName,dept,date,time,type,email,phone){
+  return `
+  <div class="confirm-card">
+    <div class="confirm-top">
+      <div class="confirm-check">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div>
+        <div class="confirm-title">Appointment Confirmed</div>
+        <div class="confirm-sub">Your booking has been successfully registered</div>
+      </div>
+    </div>
+    <div class="booking-code">
+      <div>
+        <div class="bc-label">Your Booking Code</div>
+        <div class="bc-code">${code}</div>
+      </div>
+      <button class="bc-copy" onclick="copyCode('${code}')">Copy</button>
+    </div>
+    <div class="confirm-details">
+      <div class="cd-row"><span class="cd-key">Doctor</span><span class="cd-val">${docName}</span></div>
+      <div class="cd-row"><span class="cd-key">Department</span><span class="cd-val">${dept}</span></div>
+      <div class="cd-row"><span class="cd-key">Date</span><span class="cd-val">${date}</span></div>
+      <div class="cd-row"><span class="cd-key">Time</span><span class="cd-val">${time}</span></div>
+      <div class="cd-row"><span class="cd-key">Visit Type</span><span class="cd-val">${type}</span></div>
+    </div>
+    <div class="confirm-note">
+      <strong>Email confirmation</strong> will be sent to <strong>${email}</strong>.<br>
+      You will be <strong>contacted on ${phone}</strong> to confirm your time slot within 60 minutes.
+    </div>
+  </div>`;
 }
 
-function openBooking(docId){
-  currentDoctor=DOCTORS.find(d=>d.id===docId);selectedDate=0;selectedSlot=null;
-  document.getElementById('modal-title').textContent='Book Appointment';
-  renderBookingStep1();
-  document.getElementById('booking-modal').style.display='flex';
-  document.body.style.overflow='hidden';
-}
-
-function renderBookingStep1(){
-  const doc=currentDoctor,dates=getDates();
-  document.getElementById('modal-body').innerHTML=`<div class="doc-mini"><div class="doc-avatar" style="width:52px;height:52px;border-radius:12px;background:var(--teal-mid);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">${doc.emoji}</div><div class="doc-mini-info"><h4>${doc.name}</h4><p>${doc.spec} · ${doc.hospital}</p></div></div><div class="form-group"><label>Select Date <span>*</span></label><div class="date-tabs" id="date-tabs">${dates.map((d,i)=>`<div class="date-tab ${i===0?'active':''}" onclick="selectDate(this,${i})"><div class="date-day">${DAYS[d.getDay()]}</div><div class="date-num">${d.getDate()}</div><div class="date-day">${MONTHS[d.getMonth()]}</div></div>`).join('')}</div></div><div class="form-group"><label>Select Time Slot <span>*</span></label><div class="slots-grid" id="slots-grid">${renderSlots(0)}</div><div class="error-msg" id="slot-err" style="display:none">Please select a time slot</div></div><hr style="border:none;border-top:1px solid var(--border);margin:20px 0"/><div class="input-row"><div class="form-group"><label>Patient Name <span>*</span></label><input class="form-input" id="pat-name" type="text" placeholder="Full name"/><div class="error-msg" id="pat-name-err" style="display:none">Required</div></div><div class="form-group"><label>Age <span>*</span></label><input class="form-input" id="pat-age" type="number" min="1" max="120" placeholder="e.g. 35"/><div class="error-msg" id="pat-age-err" style="display:none">Enter valid age</div></div></div><div class="input-row"><div class="form-group"><label>Phone <span>*</span></label><input class="form-input" id="pat-phone" type="tel" placeholder="+1 (555) 000-0000"/><div class="error-msg" id="pat-phone-err" style="display:none">Enter valid phone</div></div><div class="form-group"><label>Email <span>*</span></label><input class="form-input" id="pat-email" type="email" placeholder="you@example.com"/><div class="error-msg" id="pat-email-err" style="display:none">Enter valid email</div></div></div><div class="form-group"><label>Reason for Visit <span>*</span></label><input class="form-input" id="pat-reason" type="text" placeholder="Describe your symptoms..."/><div class="error-msg" id="pat-reason-err" style="display:none">Please describe the reason</div></div><div class="form-group"><label>Insurance Provider (optional)</label><select class="form-input" id="pat-insurance"><option value="">No Insurance / Self Pay</option><option>Blue Cross Blue Shield</option><option>Aetna</option><option>Cigna</option><option>UnitedHealth</option><option>Medicare</option><option>Medicaid</option></select></div><button class="btn-confirm" onclick="submitBooking()">Confirm Appointment →</button>`;
-}
-
-function renderSlots(dateIdx){
-  const booked=BOOKED_SLOTS[dateIdx]||[];
-  return TIMES.map((t,i)=>{const isBooked=booked.includes(i),sel=selectedSlot===i&&!isBooked;return`<div class="slot ${isBooked?'booked':''} ${sel?'selected':''}" onclick="${isBooked?'':('selectSlot(this,'+i+')')}">${t}</div>`;}).join('');
-}
-
-function selectDate(el,idx){
-  selectedDate=idx;selectedSlot=null;
-  document.querySelectorAll('.date-tab').forEach(d=>d.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('slots-grid').innerHTML=renderSlots(idx);
-}
-
-function selectSlot(el,idx){
-  selectedSlot=idx;
-  document.querySelectorAll('.slot:not(.booked)').forEach(s=>s.classList.remove('selected'));
-  el.classList.add('selected');
-  document.getElementById('slot-err').style.display='none';
-}
-
-function validateField(id,errId,check,msg){
-  const val=document.getElementById(id).value.trim(),ok=check(val);
-  document.getElementById(id).classList.toggle('error',!ok);
-  const e=document.getElementById(errId);
-  if(e){e.style.display=ok?'none':'block';if(!ok)e.textContent=msg;}
-  return ok;
-}
-
-function submitBooking(){
-  let valid=true;
-  if(selectedSlot===null){document.getElementById('slot-err').style.display='block';valid=false;}
-  valid=validateField('pat-name','pat-name-err',v=>v.length>=2,'Name must be at least 2 characters')&&valid;
-  valid=validateField('pat-age','pat-age-err',v=>v&&parseInt(v)>=1&&parseInt(v)<=120,'Enter valid age (1–120)')&&valid;
-  valid=validateField('pat-phone','pat-phone-err',v=>v.replace(/\D/g,'').length>=7,'Enter a valid phone number')&&valid;
-  valid=validateField('pat-email','pat-email-err',v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),'Enter a valid email address')&&valid;
-  valid=validateField('pat-reason','pat-reason-err',v=>v.length>=5,'Please describe the reason (min 5 chars)')&&valid;
-  if(!valid)return;
-  const dates=getDates(),d=dates[selectedDate],dateStr=`${DAYS[d.getDay()]}, ${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
-  const appt={id:'MC-'+(++apptCounter),doctor:currentDoctor,date:dateStr,time:TIMES[selectedSlot],patient:document.getElementById('pat-name').value.trim(),age:document.getElementById('pat-age').value,phone:document.getElementById('pat-phone').value.trim(),email:document.getElementById('pat-email').value.trim(),reason:document.getElementById('pat-reason').value.trim(),insurance:document.getElementById('pat-insurance').value||'Self Pay',status:'upcoming',bookedAt:new Date().toLocaleString()};
-  appointments.unshift(appt);
-  renderConfirmation(appt);
-}
-
-function renderConfirmation(appt){
-  document.getElementById('modal-title').textContent='Booking Confirmed!';
-  document.getElementById('modal-body').innerHTML=`<div class="confirmation"><div class="confirm-icon">✓</div><h3 style="font-size:22px;color:var(--navy);margin-bottom:6px">Appointment Confirmed</h3><p style="color:var(--muted);font-size:14px;margin-bottom:12px">Your booking has been successfully placed</p><div class="confirm-id">${appt.id}</div><p style="font-size:12px;color:var(--muted);margin-bottom:16px">Confirmation sent to ${appt.email}</p><div class="confirm-details"><div class="confirm-row"><span class="label">Doctor</span><span class="val">${appt.doctor.name}</span></div><div class="confirm-row"><span class="label">Specialty</span><span class="val">${appt.doctor.spec}</span></div><div class="confirm-row"><span class="label">Date</span><span class="val">${appt.date}</span></div><div class="confirm-row"><span class="label">Time</span><span class="val">${appt.time}</span></div><div class="confirm-row"><span class="label">Patient</span><span class="val">${appt.patient}</span></div><div class="confirm-row"><span class="label">Fee</span><span class="val">$${appt.doctor.fee}</span></div><div class="confirm-row"><span class="label">Insurance</span><span class="val">${appt.insurance}</span></div></div><div style="display:flex;gap:12px;margin-top:8px"><button class="btn-confirm" onclick="closeModal();showPage('dashboard')" style="flex:1;background:var(--teal)">View Dashboard</button><button class="btn-confirm" onclick="closeModal()" style="flex:1;background:var(--navy)">Close</button></div></div>`;
-}
-
-function closeModal(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('booking-modal').style.display='none';document.body.style.overflow='';}
-
-function renderDashboard(){
-  const upcoming=appointments.filter(a=>a.status==='upcoming'),completed=appointments.filter(a=>a.status==='completed'),docs=[...new Set(appointments.map(a=>a.doctor.id))];
-  document.getElementById('stat-total').textContent=appointments.length;
-  document.getElementById('stat-upcoming').textContent=upcoming.length;
-  document.getElementById('stat-completed').textContent=completed.length;
-  document.getElementById('stat-docs').textContent=docs.length;
-  renderApptList('upcoming');
-}
-
-function dashTab(el,view){dashView=view;document.querySelectorAll('.page-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderApptList(view);}
-
-function renderApptList(view){
-  const list=view==='upcoming'?appointments.filter(a=>a.status==='upcoming'):appointments;
-  const el=document.getElementById('appt-list');
-  if(!list.length){el.innerHTML=`<div class="empty-state"><div class="big-icon">📋</div><p>${view==='upcoming'?'No upcoming appointments. <a href="#" onclick="showPage(\'doctors\');return false" style="color:var(--teal)">Book one now!</a>':'No appointments yet.'}</p></div>`;return;}
-  el.innerHTML=list.map(a=>`<div class="appt-card"><div class="appt-left"><div class="appt-avatar">${a.doctor.emoji}</div><div><div class="appt-name">${a.doctor.name}</div><div class="appt-detail">${a.doctor.spec} · ${a.doctor.hospital}</div><div class="appt-detail" style="margin-top:3px;color:var(--teal);font-size:12px">Reason: ${a.reason}</div></div></div><div class="appt-right"><div class="appt-time">${a.time}</div><div class="appt-date">${a.date}</div><span class="badge ${a.status}">${a.status.charAt(0).toUpperCase()+a.status.slice(1)}</span>${a.status==='upcoming'?`<div style="margin-top:8px;display:flex;gap:6px"><button style="padding:5px 10px;border:1px solid var(--teal);background:transparent;color:var(--teal);border-radius:6px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif" onclick="markComplete('${a.id}')">Mark Done</button><button style="padding:5px 10px;border:1px solid var(--danger);background:transparent;color:var(--danger);border-radius:6px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif" onclick="cancelAppt('${a.id}')">Cancel</button></div>`:''}</div></div>`).join('');
-}
-
-function markComplete(id){const a=appointments.find(x=>x.id===id);if(a)a.status='completed';renderDashboard();renderApptList(dashView);}
-function cancelAppt(id){const a=appointments.find(x=>x.id===id);if(a)a.status='cancelled';renderDashboard();renderApptList(dashView);}
-
-function openLoginModal(){document.getElementById('login-modal').style.display='flex';document.body.style.overflow='hidden';}
-function closeLoginModal(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('login-modal').style.display='none';document.body.style.overflow='';}
-function loginTab(el,tab){document.querySelectorAll('#login-modal .page-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');document.getElementById('signin-form').style.display=tab==='signin'?'block':'none';document.getElementById('register-form').style.display=tab==='register'?'block':'none';}
-function doLogin(){
+// ════════════════════════════════════════
+// SUBMIT MAIN APPOINTMENT
+// ════════════════════════════════════════
+function submitMainAppt(){
+  const dept=document.getElementById('af_dept').value;
+  const docIdx=document.getElementById('af_doc').value;
+  const date=document.getElementById('af_date').value;
+  const time=document.getElementById('af_time').value;
+  const type=document.getElementById('af_type').value;
+  const concern=document.getElementById('af_concern').value;
   let ok=true;
-  const email=document.getElementById('login-email').value.trim(),pass=document.getElementById('login-pass').value;
-  const eErr=document.getElementById('login-email-err'),pErr=document.getElementById('login-pass-err');
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){eErr.textContent='Enter a valid email';eErr.style.display='block';document.getElementById('login-email').classList.add('error');ok=false;}else{eErr.style.display='none';document.getElementById('login-email').classList.remove('error');}
-  if(pass.length<4){pErr.textContent='Password is too short';pErr.style.display='block';document.getElementById('login-pass').classList.add('error');ok=false;}else{pErr.style.display='none';document.getElementById('login-pass').classList.remove('error');}
-  if(!ok)return;closeLoginModal();document.querySelector('.nav-btn.primary').textContent='👤 John';
+  function vf(id,cond,eid){const el=document.getElementById(id),er=document.getElementById(eid);if(!cond){el.classList.add('err');if(er)er.classList.add('show');return false;}el.classList.remove('err');el.classList.add('ok');if(er)er.classList.remove('show');return true;}
+  ok&=vf('af_dept',dept!=='','afe_dept');
+  ok&=vf('af_doc',docIdx!=='','afe_doc');
+  ok&=vf('af_date',date&&date>=TODAY,'afe_date');
+  ok&=vf('af_time',time!=='','afe_time');
+  if(!ok)return;
+  const doc=DOCTORS[+docIdx];
+  const code=genCode(`${currentUser.first} ${currentUser.last}`);
+  const apptRecord={code,docName:doc.name,spec:doc.spec,dept,date,time,type,concern,created:new Date().toLocaleString()};
+  appointments.push(apptRecord);
+  const btn=document.getElementById('afSubmitBtn');
+  btn.style.display='none';
+  document.getElementById('afConfirmBox').style.display='block';
+  document.getElementById('afConfirmBox').innerHTML=confirmCardHTML(code,doc.name,dept,date,time,type,currentUser.email,currentUser.phone);
 }
+
+// ════════════════════════════════════════
+// QUICK BOOK (from doctor card / dept tile)
+// ════════════════════════════════════════
+function bookDoc(idx){
+  if(!currentUser){openModal('registerModal');showToast('Please create an account to book appointments');return;}
+  const d=DOCTORS[idx];
+  document.getElementById('q_dept').value=d.dept;
+  document.getElementById('q_doc').value=d.name+' — '+d.fee;
+  document.getElementById('quickModalSub').textContent=`Booking with ${d.name} (${d.fee})`;
+  document.getElementById('q_date').min=TODAY;
+  document.getElementById('q_date').value='';
+  document.getElementById('q_time').value='';
+  document.getElementById('quickConfirm').style.display='none';
+  document.getElementById('quickSubmitBtn').style.display='flex';
+  document.getElementById('quickBtnTxt').textContent='Confirm Appointment';
+  openModal('quickModal');
+  window._quickDocIdx=idx;
+}
+
+function bookFromDept(dept){
+  if(!currentUser){openModal('registerModal');showToast('Please create an account to book appointments');return;}
+  const d=DOCTORS.find(doc=>doc.dept===dept)||DOCTORS[0];
+  bookDoc(DOCTORS.indexOf(d));
+}
+
+function submitQuick(){
+  const date=document.getElementById('q_date').value;
+  const time=document.getElementById('q_time').value;
+  let ok=true;
+  function vf(id,cond,eid){const el=document.getElementById(id),er=document.getElementById(eid);if(!cond){el.classList.add('err');if(er)er.classList.add('show');return false;}el.classList.remove('err');el.classList.add('ok');if(er)er.classList.remove('show');return true;}
+  ok&=vf('q_date',date&&date>=TODAY,'qe_date');
+  ok&=vf('q_time',time!=='','qe_time');
+  if(!ok)return;
+  const doc=DOCTORS[window._quickDocIdx];
+  const type=document.getElementById('q_type').value;
+  const code=genCode(`${currentUser.first} ${currentUser.last}`);
+  appointments.push({code,docName:doc.name,spec:doc.spec,dept:doc.dept,date,time,type,created:new Date().toLocaleString()});
+  document.getElementById('quickSubmitBtn').style.display='none';
+  document.getElementById('quickConfirm').style.display='block';
+  document.getElementById('quickConfirm').innerHTML=confirmCardHTML(code,doc.name,doc.dept,date,time,type,currentUser.email,currentUser.phone);
+}
+
+// ════════════════════════════════════════
+// AUTH
+// ════════════════════════════════════════
+const USERS = {};
+
 function doRegister(){
+  const first=document.getElementById('r_first').value.trim();
+  const last=document.getElementById('r_last').value.trim();
+  const email=document.getElementById('r_email').value.trim();
+  const phone=document.getElementById('r_phone').value.trim();
+  const pass=document.getElementById('r_pass').value;
+  const pass2=document.getElementById('r_pass2').value;
+  function vf(id,cond,eid){const el=document.getElementById(id),er=document.getElementById(eid);if(!cond){el.classList.add('err');if(er)er.classList.add('show');return false;}el.classList.remove('err');el.classList.add('ok');if(er)er.classList.remove('show');return true;}
   let ok=true;
-  const first=document.getElementById('reg-first').value.trim(),email=document.getElementById('reg-email').value.trim(),pass=document.getElementById('reg-pass').value;
-  const fErr=document.getElementById('reg-first-err'),eErr=document.getElementById('reg-email-err'),pErr=document.getElementById('reg-pass-err');
-  if(first.length<2){fErr.textContent='Enter your first name';fErr.style.display='block';ok=false;}else{fErr.style.display='none';}
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){eErr.textContent='Enter a valid email';eErr.style.display='block';ok=false;}else{eErr.style.display='none';}
-  if(pass.length<8){pErr.textContent='Password must be at least 8 characters';pErr.style.display='block';ok=false;}else{pErr.style.display='none';}
-  if(!ok)return;closeLoginModal();document.querySelector('.nav-btn.primary').textContent='👤 '+first;
+  ok&=vf('r_first',first.length>=2,'re_first');
+  ok&=vf('r_last',last.length>=2,'re_last');
+  ok&=vf('r_email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),'re_email');
+  ok&=vf('r_phone',/^[\+]?[\d\s\-]{10,15}$/.test(phone),'re_phone');
+  ok&=vf('r_pass',pass.length>=8,'re_pass');
+  ok&=vf('r_pass2',pass===pass2,'re_pass2');
+  if(!ok)return;
+  if(USERS[email]){document.getElementById('r_email').classList.add('err');document.getElementById('re_email').textContent='Email already registered';document.getElementById('re_email').classList.add('show');return;}
+  const btn=document.getElementById('regBtnTxt');btn.textContent='Creating Account…';
+  setTimeout(()=>{
+    USERS[email]={first,last,email,phone,pass};
+    currentUser={first,last,email,phone};
+    closeModal('registerModal');
+    updateAuthUI();
+    renderApptForm();
+    showToast(`Welcome, ${first}! Account created successfully.`);
+  },900);
 }
 
-renderDoctors();renderDashboard();
+function doLogin(){
+  const email=document.getElementById('l_email').value.trim();
+  const pass=document.getElementById('l_pass').value;
+  function vf(id,cond,eid){const el=document.getElementById(id),er=document.getElementById(eid);if(!cond){el.classList.add('err');if(er)er.classList.add('show');return false;}el.classList.remove('err');el.classList.add('ok');if(er)er.classList.remove('show');return true;}
+  let ok=true;
+  ok&=vf('l_email',email.length>0,'le_email');
+  ok&=vf('l_pass',pass.length>0,'le_pass');
+  if(!ok)return;
+  const btn=document.getElementById('loginBtnTxt');btn.textContent='Signing In…';
+  setTimeout(()=>{
+    const u=USERS[email];
+    if(!u||u.pass!==pass){
+      document.getElementById('l_email').classList.add('err');
+      document.getElementById('l_pass').classList.add('err');
+      document.getElementById('le_pass').textContent='Invalid email or password';
+      document.getElementById('le_pass').classList.add('show');
+      btn.textContent='Sign In';
+      return;
+    }
+    currentUser={first:u.first,last:u.last,email:u.email,phone:u.phone};
+    closeModal('loginModal');
+    updateAuthUI();
+    renderApptForm();
+    showToast(`Welcome back, ${u.first}!`);
+  },800);
+}
+
+function logout(){
+  currentUser=null;
+  appointments=[];
+  updateAuthUI();
+  renderApptForm();
+  showToast('Signed out successfully.');
+}
+
+function updateAuthUI(){
+  const ab=document.getElementById('authButtons');
+  const uw=document.getElementById('userBarWrap');
+  if(currentUser){
+    ab.style.display='none';
+    uw.style.display='block';
+    document.getElementById('navUserName').textContent=currentUser.first;
+    document.getElementById('navAvatarInitials').textContent=currentUser.first[0].toUpperCase();
+  } else {
+    ab.style.display='flex';
+    uw.style.display='none';
+  }
+}
+
+function openMyAppts(){
+  const list=document.getElementById('myApptsList');
+  if(!appointments.length){list.innerHTML='<div style="text-align:center;padding:32px;color:var(--text3);font-size:14px;">No appointments booked yet.</div>';return;}
+  list.innerHTML='<div class="my-appts-list">'+appointments.map(a=>`
+  <div class="appt-rec">
+    <div class="appt-rec-top">
+      <div><div class="appt-rec-name">${a.docName}</div><div class="appt-rec-spec">${a.spec}</div></div>
+      <div class="appt-rec-code">${a.code}</div>
+    </div>
+    <div class="appt-rec-details">${a.dept} · ${a.date} · ${a.time} · ${a.type}</div>
+  </div>`).join('')+'</div>';
+}
+
+// ════════════════════════════════════════
+// MODALS
+// ════════════════════════════════════════
+function openModal(id){
+  if(id==='myApptsModal')openMyAppts();
+  document.getElementById(id).classList.add('open');
+}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+function switchModal(from,to){closeModal(from);setTimeout(()=>openModal(to),150);}
+document.querySelectorAll('.overlay').forEach(ov=>ov.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');}));
+
+// ════════════════════════════════════════
+// TOAST & COPY
+// ════════════════════════════════════════
+function showToast(msg){
+  const t=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+function copyCode(code){
+  navigator.clipboard.writeText(code).then(()=>showToast('Booking code copied: '+code)).catch(()=>showToast('Code: '+code));
+}
+
+// Min date for all date inputs
+document.querySelectorAll('input[type=date]').forEach(el=>el.min=TODAY);
 </script>
 </body>
 </html>
